@@ -89,21 +89,26 @@ Profiles of other travelers
 ## Models
 
 User model
- 
+
 ```
 username: String
+email: String
 password: String
+travels: [{Travel-Objects}]
 ```
 
-Event model
+Travel model
 
 ```
-owner: ObjectId<User>
-name: String
-description: String
-date: Date
-location: String
-attendees: [ObjectId<User>]
+traveler: ObjectId<User>
+country: String
+cities: [String]
+travelName: String
+dateFrom: Date
+dateTo: Date
+categories: [String]
+Experience: String
+Photo: String
 ``` 
 
 ## Links
