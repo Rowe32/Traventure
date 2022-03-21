@@ -48,43 +48,51 @@ Profiles of other travelers
 
 - GET / 
   - renders the homepage
-- GET /auth/signup
-  - redirects to / if user logged in
-  - renders the signup form (with flash msg)
-- POST /auth/signup
-  - redirects to / if user logged in
+- GET /signup
+  - renders the signup form
+- POST /signup
   - body:
     - username
     - email
     - password
-- GET /auth/login
-  - redirects to / if user logged in
-  - renders the login form (with flash msg)
-- POST /auth/login
-  - redirects to / if user logged in
+  - redirects to /login if user is signed up
+- GET /login
+  - renders the login form
+- POST /login
+  - redirects to /profile if user logged in
   - body:
-    - username
+    - email
     - password
-- POST /auth/logout
+- POST /logout                             
+                                        //- später prüfen
   - body: (empty)
+  - redirects to /
 
-- GET /events
-  - renders the event list + the create form
-- POST /events/create 
-  - redirects to / if user is anonymous
+- GET /profile
+  - renders the users profile page
+  - svg on click allows to add entry to travel list (creates id)
+  - redirects to travel list if user clicks on LINK/BTN
+                                          //- POST /profile
+                                          //  - id
+
+- GET /travels
+  - renders the past travels list
+  - redirects to individual travel entries if user clicks on entry
+
+- GET /travels/:id
+  - renders the travel detail form (if edited before then pre-filled form)
+  - accesses API to gain information on country
+
+- POST /travels/:id
+                          //   - if user clicks on save-btn redirects to travel detail page (w/o form)
+  - if user clicks on save-btn redirects to /travels
   - body: 
-    - name
-    - date
-    - location
-    - description
-- GET /events/:id
-  - renders the event detail page
-  - includes the list of attendees
-  - attend button if user not attending yet
-- POST /events/:id/attend 
-  - redirects to / if user is anonymous
-  - body: (empty - the user is already stored in the session)
+    -cities
+    -travel dates
+    -experience
+    -category
 
+                                    // list error paths
 
 ## Models
 

@@ -18,3 +18,12 @@ const userSchema = new Schema(
 const User = model("User", userSchema);
 
 module.exports = User;
+
+
+User model
+
+```
+username: String
+email: String
+password: String
+travels: [{Travel-Objects}]
