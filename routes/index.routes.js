@@ -44,7 +44,7 @@ router.post("/login", async (req, res, next) => {
 
     if (checkPassword) {
       req.session.currentUser = loggedUser;
-      res.redirect("/profile");
+      res.redirect(`/private/${loggedUser.username}`);
     }
   } catch (err) {
     console.error(err);

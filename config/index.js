@@ -25,13 +25,13 @@ module.exports = (app) => {
     secret: process.env.SESSION_SECRET,
     store: MongoStore.create({ mongoUrl: "mongodb://localhost/traventure" }),
     resave: false,
-    saveUninitialized: true,
-    cookie: {
+    saveUninitialized: false,
+    /* cookie: {
       sameSite: "none",
       secure: true,
       httpOnly: true,
       maxAge: 600000, // 60 * 1000 ms * 10 === 10 min
-    },
+    }, */
   }));
 
   // In development environment the app logs

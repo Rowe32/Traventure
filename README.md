@@ -68,22 +68,22 @@ Profiles of other travelers
   - body: (empty)
   - redirects to /
 
-- GET /profile
+- GET /private/:username
   - renders the users profile page
   - svg on click allows to add entry to travel list (creates id)
   - redirects to travel list if user clicks on LINK/BTN
                                           //- POST /profile
                                           //  - id
 
-- GET /travels
+- GET /private/:username/travels
   - renders the past travels list
   - redirects to individual travel entries if user clicks on entry
 
-- GET /travels/:id
+- GET /private/:username/travels/:id
   - renders the travel detail form (if edited before then pre-filled form)
   - accesses API to gain information on country
 
-- POST /travels/:id
+- POST /private/:username/travels/:id
                           //   - if user clicks on save-btn redirects to travel detail page (w/o form)
   - if user clicks on save-btn redirects to /travels
   - body: 
