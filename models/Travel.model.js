@@ -1,12 +1,30 @@
-Travel model
+const { Schema, model } = require("mongoose");
 
-```
-traveler: ObjectId<User>
-country: String
-cities: [String]
-travelName: String
-dateFrom: Date
-dateTo: Date
-categories: [String]
-Experience: String
-Photo: String
+const travelSchema = new Schema(
+  {
+    country: {
+      type: String,
+      required: true,
+    },
+    cities: {
+        type: [String],
+    },
+    travelName: String,
+    dateStart: Date,
+    dateEnd: Date,
+    categories: {
+        type: String,
+        enum: ["backpack", "into the wild", "van", "city trip", "all inclusive" ],
+    },
+    Experience: String, 
+    Photo: String
+   
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Travel = model("Travel", travelSchema);
+
+module.exports = Travel;
