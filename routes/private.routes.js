@@ -8,8 +8,8 @@ router.use(requireLogin);
 
 
 router.get("/test", async (req, res) => {
-    const travel = await User.find().populate('travels');
-    console.log("Heyy its me", travel)
+    const user = await User.find().populate('travels');
+    console.log("Heyy its me", user[0].travels)
     res.send("Send nothing")
   })
 router.get("/:username", (req, res) => {
@@ -36,8 +36,7 @@ router.post("/:username/travels/:id", async(req, res, next) => {
         dateEnd: dateEnd,
     }
     await Travel.create(newTravel);
-    const travelFromDb = await Travel.findOne({country: country});
-    await User.findOneAndUpdate({username: req.params.username}, {$push: {travels: travelFromDb._id}})
+    
     res.redirect(`/private/${req.params.username}/travels`);
 })
 

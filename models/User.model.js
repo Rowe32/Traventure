@@ -16,12 +16,21 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    travels: [{ type: Schema.Types.ObjectId, ref: 'travel', }]
   },
   {
     timestamps: true,
   }
 );
+
+userSchema.virtual('travels', {
+  ref: 'travel', //The Model to use
+  localField: '_id', //Find in Model, where localField 
+  foreignField: 'owner', // is equal to foreignField
+});
+
+// Set Object and Json property to true. Default is set to false
+userSchema.set('toObject', { virtuals: true });
+userSchema.set('toJSON', { virtuals: true });
 
 const User = model("user", userSchema);
 
