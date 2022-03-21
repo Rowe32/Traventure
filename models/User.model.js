@@ -16,13 +16,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    travels: [{ type: Schema.Types.ObjectId, ref: 'Travel' }]
+    travels: [{ type: Schema.Types.ObjectId, ref: 'travel' }]
   },
   {
     timestamps: true,
   }
 );
 
-const User = model("User", userSchema);
+const User = model("user", userSchema);
 
 module.exports = User;

@@ -24,6 +24,8 @@ router.post("/signup", async (req, res, next) => {
     };
 
     await User.create(user);
+
+    
     res.redirect("/login");
   } catch (err) {
     console.error(err);

@@ -30,10 +30,11 @@
       <nav>
         <ul>
           <li><a href="/login">Login</a></li>
-          {{! if isLoggedin = true : }}
-          {{! <li><a href="#">my overview</a></li> }}
+          {{! <li class="hidden"><a href="#">my overview</a></li> }}
           {{! <li><a href="#">past travels</a></li> }}
-          {{! <li><a href="#">logout</a></li> }}
+          <form action="/private/logout" method="POST">
+          <li><button type="submit">Logout</button></li>
+          </form>
           {{! if isLoggedin = true && new adventures }}
           {{! <li><a href="#">past travels</a></li> }}
           {{! if isLoggedin = true && other traventures }}

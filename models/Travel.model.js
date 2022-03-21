@@ -16,8 +16,8 @@ const travelSchema = new Schema(
         type: String,
         enum: ["backpack", "into the wild", "van", "city trip", "all inclusive" ],
     },
-    Experience: String, 
-    Photo: String
+    experience: String, 
+    photo: String
    
   },
   {
@@ -25,6 +25,6 @@ const travelSchema = new Schema(
   }
 );
 
-const Travel = model("Travel", travelSchema);
+const Travel = model("travel", travelSchema);
 
 module.exports = Travel;
