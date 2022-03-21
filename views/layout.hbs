@@ -1,19 +1,59 @@
-<!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{appTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    {{! tag for favicon }}
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/220319_Favicon_black.png"
+    />
+    {{! tag for font Gaegu }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
-   <body>
+    {{! tag for font Gluten }}
+    {{! <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100;300;400;600&display=swap" rel="stylesheet"> }}
 
-      {{{body}}}
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-      <script src="/js/script.js"></script>
-   </body>
+  <body>
+    <div class="navbar-div">
+       <div class="flavicon-and-name-div">
+      <img src="/images/220319_Favicon_white.png" />
+      <h3 id="nav-traventure">TRAVENTURE</h3>
+       </div>
+      <div class="navbar-ul-div">
+      <nav>
+        <ul>
+          <li><a href="#">Login</a></li>
+          {{! if isLoggedin = true : }}
+          {{! <li><a href="#">my overview</a></li> }}
+          {{! <li><a href="#">past travels</a></li> }}
+          {{! <li><a href="#">logout</a></li> }}
+          {{! if isLoggedin = true && new adventures }}
+          {{! <li><a href="#">past travels</a></li> }}
+          {{! if isLoggedin = true && other traventures }}
+          {{! <li><a href="#">othertraventures</a></li> }}
+
+        </ul>
+      </nav>
+      </div>
+    </div>
+
+    {{{body}}}
+
+    <script src="/js/script.js"></script>
+  </body>
 
 </html>
