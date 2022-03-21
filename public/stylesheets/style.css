@@ -1,6 +1,6 @@
 body {
   font-family: 'Gaegu', cursive;
-  font: 14px;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -35,7 +35,7 @@ body {
 
 .flavicon-and-name-div h3 {
   margin:1vh;
-  font: 10px !important;
+  font-size: 2rem;
 }
 
 .navbar-ul-div {
@@ -47,7 +47,7 @@ body {
 .navbar-ul-div a {
   color: white;
   text-decoration: none;
-  font: 100px
+  font-size: 1.5rem
 }
 
 h1 {
