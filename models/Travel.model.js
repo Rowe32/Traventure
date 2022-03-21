@@ -2,6 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const travelSchema = new Schema(
   {
+    owner: { type: Schema.Types.ObjectId, ref: 'user' },
+
     country: {
       type: String,
       required: true,

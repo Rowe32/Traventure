@@ -6,6 +6,12 @@ const Travel = require("../models/Travel.model");
 
 router.use(requireLogin);
 
+
+router.get("/test", async (req, res) => {
+    const travel = await User.find().populate('travels');
+    console.log("Heyy its me", travel)
+    res.send("Send nothing")
+  })
 router.get("/:username", (req, res) => {
     //req.params.username
     res.render('profile', { user : req.session.currentUser });
@@ -21,22 +27,17 @@ router.get("/:username/travels/:id", (req, res) => {
 
 router.post("/:username/travels/:id", async(req, res, next) => {
     const {country, cities, dateStart, dateEnd} = req.body;
-    
+    const owner = await User.findOne({username: req.params.username})
     const newTravel = {
+        owner,
         country: country,
         cities: cities,
         dateStart: dateStart,
         dateEnd: dateEnd,
     }
-    console.log("newTravel", newTravel);
-
     await Travel.create(newTravel);
-
-    const userFromDb = await User.findOne({username: req.params.username});
-    await userFromDb.populate("travels");
-
-    console.log("This is userFromDb", userFromDb);
-
+    const travelFromDb = await Travel.findOne({country: country});
+    await User.findOneAndUpdate({username: req.params.username}, {$push: {travels: travelFromDb._id}})
     res.redirect(`/private/${req.params.username}/travels`);
 })
 
