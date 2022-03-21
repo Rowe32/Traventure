@@ -26,18 +26,16 @@ module.exports = (app) => {
     store: MongoStore.create({ mongoUrl: "mongodb://localhost/traventure" }),
     resave: false,
     saveUninitialized: false,
-    /* cookie: {
-      sameSite: "none",
+    cookie: {
+      //sameSite: "none",
       secure: true,
       httpOnly: true,
       maxAge: 600000, // 60 * 1000 ms * 10 === 10 min
-    }, */
+    },
   }));
 
   // In development environment the app logs
   app.use(logger("dev"));
-
-
 
   // To have access to `body` property in the request
   app.use(express.json());
