@@ -17,8 +17,10 @@ router.get("/:username", (req, res) => {
     res.render('profile', { user : req.session.currentUser });
 })
 
-router.get("/:username/travels", (req, res) => {
-    res.render('travelList', { user : req.session.currentUser });
+router.get("/:username/travels", async (req, res) => {
+    const owner = await User.findOne({username: req.params.username}).populate('travels');
+    const allTravelsOfOwner = owner.travels; //array of tavel objects
+    res.render('travelList', { user : req.session.currentUser, travels: allTravelsOfOwner} );
 })
 
 router.get("/:username/travels/:id", (req, res) => {
@@ -27,6 +29,7 @@ router.get("/:username/travels/:id", (req, res) => {
 
 router.post("/:username/travels/:id", async(req, res, next) => {
     const {country, cities, dateStart, dateEnd} = req.body;
+    console.log("hello from line 39", dateStart.slice(0, 4));
     const owner = await User.findOne({username: req.params.username})
     const newTravel = {
         owner,
@@ -34,6 +37,7 @@ router.post("/:username/travels/:id", async(req, res, next) => {
         cities: cities,
         dateStart: dateStart,
         dateEnd: dateEnd,
+        year: Number(dateStart.slice(0, 4)),
     }
     await Travel.create(newTravel);
     const travelFromDb = await Travel.findOne({country: country});

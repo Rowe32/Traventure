@@ -2,6 +2,8 @@
 
 <h3><a href="/private/{{user.username}}/travels/{{user._id}}">Link to example</a></h3>
 
-{{!-- {{# each}}
-
-{{/each}} --}}
+<ul>
+{{#each travels }}
+    <li> {{ this.country }} {{ this.year }}</li>
+{{/each}} 
+</ul>
