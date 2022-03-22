@@ -1,24 +1,35 @@
 const allCountryElements = document.querySelectorAll("path");
 
-console.log(allCountryElements);
+const countryList = [...allCountryElements].map((elem) =>
+  elem.getAttribute("title")
+);
 
-const allTitles = [...allCountryElements].map((elem) => elem.getAttribute("title"));
-
-
-console.log(allTitles);
+console.log(countryList);
 
 const addCountry = (countryName) => {
-    const countryElement = document.querySelector(`[title="${countryName}"]`);
-    
-    countryElement.addEventListener("mouseover", () => {
-        countryElement.style.fill = "red";
-        console.log(countryElement);
+  const countryElement = document.querySelector(`[title="${countryName}"]`);
+
+  countryElement.addEventListener("mouseover", () => {
+    countryElement.style.fill = "#FF8B42";
+    console.log(countryElement);
+  });
+
+  countryElement.addEventListener("click", async (event) => {
+    const newURL = new URL(window.location.href);
+    console.log(newURL.pathname);
+    const response = await fetch(`${newURL.pathname}/travels`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'},
+      body: JSON.stringify({ country: countryName }),
     });
-    
-    countryElement.addEventListener("mouseleave", () => {
-        countryElement.style.fill = "black";
-        console.log(countryElement);
-    });
+    console.log(event.target);
+  });
+
+  countryElement.addEventListener("mouseleave", () => {
+    countryElement.style.fill = "black";
+    console.log(countryElement);
+  });
 };
 
-allTitles.forEach(addCountry);
+countryList.forEach(addCountry);

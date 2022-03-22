@@ -23,6 +23,19 @@ router.get("/:username/travels", async (req, res) => {
     res.render('travelList', { user : req.session.currentUser, travels: allTravelsOfOwner} );
 })
 
+router.post("/:username/travels", async (req, res) => {
+  const owner = await User.findOne({username: req.session.currentUser.username})
+  const country = req.body.country;
+    const newTravel = {
+      owner,
+      country,
+    }
+        await Travel.create(newTravel);
+        const travelFromDb = await Travel.findOne({country: country});
+    await User.findOneAndUpdate({username: req.params.username}, {$push: {travels: travelFromDb._id}})
+  res.send("Successful changes");
+})
+
 router.get("/:username/travels/:id", (req, res) => {
     res.render('travelDetails', { user : req.session.currentUser });
 })

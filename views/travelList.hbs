@@ -1,9 +1,10 @@
 <h1>These are your past travels: </h1>
 
-<h3><a href="/private/{{user.username}}/travels/{{user._id}}">Link to example</a></h3>
+{{!-- <h3><a href="/private/{{user.username}}/travels/{{user._id}}">Link to example</a></h3> --}}
 
 <ul>
 {{#each travels }}
     <li> {{ this.country }} {{ this.year }}</li>
+    <button><a href="/private/{{../user.username}}/travels/{{this._id}}">edit</a></button>
 {{/each}} 
 </ul>
