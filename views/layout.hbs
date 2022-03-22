@@ -29,24 +29,31 @@
       <div class="navbar-ul-div">
       <nav>
         <ul>
-          <li><a href="/login">Login</a></li>
-          {{! <li class="hidden"><a href="#">my overview</a></li> }}
-          {{! <li><a href="#">past travels</a></li> }}
+          {{#if user}}
+          <li><a href="/private/{{user.username}}">my overview</a></li>
+          <li><a href="/private/{{user.username}}/travels">past travels</a></li>
+          {{!-- <li><a href="/private/{{user.username}}/adventures">new adventures</a></li> --}}
+          {{!-- <li><a href="#">othertraventures</a></li> --}}
+
           <form action="/private/logout" method="POST">
           <li><button type="submit">Logout</button></li>
           </form>
-          {{! if isLoggedin = true && new adventures }}
-          {{! <li><a href="#">past travels</a></li> }}
-          {{! if isLoggedin = true && other traventures }}
-          {{! <li><a href="#">othertraventures</a></li> }}
+
+
+          {{else}}
+          <li><a href="/login">Login</a></li>
+          {{/if}}
 
         </ul>
       </nav>
       </div>
     </div>
 
+  <div class="main-content">
+
     {{{body}}}
 
+  </div>
     <script src="/js/script.js"></script>
   </body>
 

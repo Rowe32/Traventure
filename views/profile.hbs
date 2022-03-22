@@ -1,6 +1,9 @@
-<h1>Your Traventure Page</h1>
-<h2> Welcome {{ user.username }} </h2>
+
+<h1 id="profile-greeting"> Welcome {{ user.username }} </h1>
 
 {{!-- WORLD MAP --}}
+<div id="world-map-partial">
+{{> worldmap }}
+</div>
 
-<button><a href="/private/{{ user.username }}/travels">See your past travels!</a></button>
+<button class="btn"><a href="/private/{{ user.username }}/travels">See your past travels!</a></button>

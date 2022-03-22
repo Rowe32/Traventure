@@ -2,6 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
 
+
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -25,7 +26,7 @@ router.post("/signup", async (req, res, next) => {
 
     await User.create(user);
 
-    
+
     res.redirect("/login");
   } catch (err) {
     console.error(err);

@@ -48,10 +48,82 @@ body {
 .navbar-ul-div a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem
+  font-size: 1rem;
+  margin-left: 2vw;
 }
 
-h1 {
-  color: 15px;
+.main-content {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* ------------------------------------ */
+/* Style for index page */
+
+#index-header {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.btn {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  font-family: 'Gaegu', cursive;
+  color: white;
+  border-color: black;
+  
+}
+
+.btn:hover {
+  border: 0.5vh solid rgb(69,69,69);
+  background-color: rgb(69,69,69);
+  color: white;
+}
+
+.btn:active {
+  border: 0.5vh solid rgb(69,69,69);
+  background-color: rgb(69,69,69);
+  color: white;
+  transform: translateY(1vh);
+}
+
+.btn a {
+  text-decoration: none;
+  font-family: 'Gaegu', cursive;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* ------------------------------------ */
+/* Style for profile page */
+
+#profile-greeting {
+  display: flex;
+  align-items: flex-start;
+
+}
+
+#world-map-partial {
+  position: relative;
+  height: 80vh;
+  width: 90vw;
+  overflow: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+}
+
+svg {
+max-height: 80vh;
+max-width: 90vw;
+object-fit: contain;
 }
 
