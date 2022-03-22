@@ -14,6 +14,7 @@ const travelSchema = new Schema(
     travelName: String,
     dateStart: Date,
     dateEnd: Date,
+    year: Number,
     categories: {
         type: String,
         enum: ["backpack", "into the wild", "van", "city trip", "all inclusive" ],
