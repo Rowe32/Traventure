@@ -4,7 +4,12 @@
 
 <ul>
 {{#each travels }}
-    <li> {{ this.country }} {{ this.year }}</li>
+    <li id="litograpthis"> {{ this.country }} {{ this.year }}</li>
     <button><a href="/private/{{../user.username}}/travels/{{this._id}}">edit</a></button>
+    <form action="/private/{{ ../user.username }}/travels/delete" method="POST" >
+            <input type="text" name="id" style="display:none" value="{{ this._id }}">
+            <button type="submit">delete</button>
+    </form>
+
 {{/each}} 
 </ul>

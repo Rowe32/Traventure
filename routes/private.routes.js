@@ -48,6 +48,14 @@ router.post("/:username/travels", async (req, res) => {
   res.send("Successful changes");
 });
 
+router.post("/:username/travels/delete", async (req, res) => {
+  const travelID = req.body.id;
+  await Travel.findByIdAndDelete(travelID);
+  await User.findOneAndUpdate({ username : req.session.currentUser.username }, { $pull : { travels: travelID } })
+  res.redirect(`/private/${ req.session.currentUser.username }/travels`);
+});
+
+
 router.get("/:username/travels/:id", async(req, res) => {
   const travelFromDb = await Travel.findOne({ _id: req.params.id });
   res.render("travelDetails", {
