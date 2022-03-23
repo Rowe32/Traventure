@@ -17,7 +17,7 @@
     <div class="btn-travel-box">  
     <button><a href="/private/{{../user.username}}/travels/{{this._id}}">edit</a></button>
     <form action="/private/{{ ../user.username }}/travels/delete" method="POST" >
-            <input type="text" name="id" style="display:none" value="{{ this._id }}">
+            <input id="debuggingId"type="text" name="id" value="{{ this._id }}">
             <button type="submit">delete</button>
     </form>
     </div>
@@ -28,3 +28,5 @@
 </ul>
 
 </div>
+
+{{!-- style="display:none" --}}

@@ -18,13 +18,12 @@ router.get("/:username", (req, res) => {
 });
 
 router.get("/:username/travels", async (req, res) => {
-  const owner = await User.findOne({ username: req.params.username }).populate(
-    "travels"
-  );
-  const allTravelsOfOwner = owner.travels; //array of tavel objects
+
+  const allTravels = await Travel.find({owner: req.session.currentUser._id })
+
   res.render("travelList", {
     user: req.session.currentUser,
-    travels: allTravelsOfOwner,
+    travels: allTravels,
   });
 });
 

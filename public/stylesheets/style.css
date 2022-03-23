@@ -228,3 +228,7 @@ ul {
   align-items: baseline;
   color: #ff8b42;
 }
+
+#debuggingId {
+  width:300px;
+}
