@@ -21,11 +21,12 @@ const path = require("path");
 
 // Middleware configuration
 module.exports = (app) => {
-  app.use(session({
-    secret: process.env.SESSION_SECRET,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/traventure" }),
-    resave: false,
-    saveUninitialized: false,
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      store: MongoStore.create({ mongoUrl: MONGO_URI, }),
+      resave: false,
+      saveUninitialized: false,
     // cookie: {
     //   //sameSite: "none",
     //   // secure: true,
