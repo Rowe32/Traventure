@@ -6,6 +6,7 @@ const express = require("express");
 const logger = require("morgan");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
+const MONGO_URI = require("../utils/consts");
 
 // ℹ️ Needed when we deal with cookies (we will when dealing with authentication)
 // https://www.npmjs.com/package/cookie-parser
@@ -21,11 +22,13 @@ const path = require("path");
 
 // Middleware configuration
 module.exports = (app) => {
-  app.use(session({
-    secret: process.env.SESSION_SECRET,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/traventure" }),
-    resave: false,
-    saveUninitialized: false,
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      store: MongoStore.create({ mongoUrl: MONGO_URI }
+      ),
+      resave: false,
+      saveUninitialized: false,
     // cookie: {
     //   //sameSite: "none",
     //   // secure: true,
