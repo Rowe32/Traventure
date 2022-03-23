@@ -9,15 +9,16 @@ travelModeElem.addEventListener("click", () => {
     adventureModeElem.className = "btn petrol selectAdventure passive";
     adventureModeElem.innerText = "add adventure!";
   } 
-  if (travelModeElem.classList.contains("active")) {
+  else {
     travelModeElem.className = "btn orange selectTravel passive";
     travelModeElem.innerText = "add travel!";
     adventureModeElem.className = "btn petrol selectAdventure active";
     adventureModeElem.innerText = "adventure mode!";
   }
+  console.log(travelModeElem.classList.contains("passive"))
+  console.log(travelModeElem.classList)
 });
 
-console.log(travelModeElem.classList.contains("passive"))
 
 adventureModeElem.addEventListener("click", () => {
   if (adventureModeElem.classList.contains("passive")) {
