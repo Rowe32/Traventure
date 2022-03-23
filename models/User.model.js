@@ -16,7 +16,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    travels: [{ type: Schema.Types.ObjectId, ref: 'travel', }]
+    travels: [{ type: Schema.Types.ObjectId, ref: 'travel', }],
+    adventures: [{type: Schema.Types.ObjectId, ref: 'adventure',}]
   },
   {
     timestamps: true,

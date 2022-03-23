@@ -2,49 +2,37 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const requireLogin = require("../middleware/routeGuard");
 const User = require("../models/User.model");
-const Travel = require("../models/Travel.model");
+// const Travel = require("../models/Travel.model");
 const Adventure = require("../models/Adventure.model");
 const countryNames = require("../db/countryNames");
 
 router.use(requireLogin);
 
-router.get("/test", async (req, res) => {
-  const travel = await User.find().populate("travels");
-  // console.log("Heyy its me", travel);
-  res.send("Send nothing");
-});
-router.get("/:username", (req, res) => {
-  //req.params.username
-  res.render("profile", { user: req.session.currentUser });
-});
-
-router.get("/:username/travels", async (req, res) => {
-
-  const allTravels = await Travel.find({owner: req.session.currentUser._id })
-
-  res.render("travelList", {
+router.get("/:username/adventures", async (req, res) => {
+  const allAdventure = await Adventure.find({owner: req.session.currentUser._id });
+  res.render("adventureList", {
     user: req.session.currentUser,
-    travels: allTravels,
+    adventure: allAdventure,
   });
 });
 
-router.post("/:username/travels", async (req, res) => {
+router.post("/:username/adventures", async (req, res) => {
   const owner = await User.findOne({
     username: req.session.currentUser.username,
   });
   const country = req.body.country;
-  const newTravel = {
+  const newAdventure = {
     owner,
     country,
     dateStart: new Date(),
     dateEnd: new Date(),
   };
-  await Travel.create(newTravel);
-  const travelFromDb = await Travel.findOne({ country: country });
+  await Adventure.create(newAdventure);
+  const adventureFromDb = await Adventure.findOne({ country: country });
   // we can change this and make the list just through selecting the owner of the lists
   await User.findOneAndUpdate(
     { username: req.params.username },
-    { $push: { travels: travelFromDb._id } }
+    { $push: { adventures: adventureFromDb._id } }
   );
   res.send("Successful changes");
 });
