@@ -1,4 +1,4 @@
-const countryNames = [
+const unsortedCountryNames = [
     "Andorra",
     "United Arab Emirates",
     "Afghanistan",
@@ -256,5 +256,7 @@ const countryNames = [
     "Zambia",
     "Zimbabwe"
 ]
+
+const countryNames = unsortedCountryNames.sort();
 
 module.exports = countryNames;

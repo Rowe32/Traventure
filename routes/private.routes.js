@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const requireLogin = require("../middleware/routeGuard");
 const User = require("../models/User.model");
 const Travel = require("../models/Travel.model");
+const countryNames = require("../db/countryNames");
 
 router.use(requireLogin);
 
@@ -64,6 +65,7 @@ router.get("/:username/travels/:id", async(req, res) => {
   res.render("travelDetails", {
     user: req.session.currentUser,
     entry: {...travelFromDb._doc, dateStart, dateEnd },
+    countryNames: countryNames,
   });
 });
 

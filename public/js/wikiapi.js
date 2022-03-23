@@ -1,5 +1,4 @@
-const countryForInfobox = document.querySelector("input#country");
-console.log("Hey line 10", countryForInfobox.value);
+const countryForInfobox = document.querySelector("#selectedCountry");
 
 //template literal for countes
 const endpoint = `https://en.wikipedia.org/w/api.php?action=parse&page=${countryForInfobox.value}&prop=text&formatversion=2&origin=*&format=json`;

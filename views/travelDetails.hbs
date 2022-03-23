@@ -5,8 +5,15 @@
 
 {{#if entry}}
 <label for="country">Country:</label>
-<input id="country" type="text" name="country" value="{{entry.country}}">
-<br>
+<select id="country" name="country" required>
+        <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
+    {{#each countryNames}}
+        <option value="{{this}}">{{this}}</option>
+    {{/each}}
+</select>
+
+{{!-- <input id="country" type="select" name="country" value="{{entry.country}}">
+<br> --}}
 <label for="cities">Cities:</label>
 <input id="cities" type="text" name="cities" value="{{entry.cities}}">
 {{!-- <br>
