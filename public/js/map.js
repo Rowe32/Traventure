@@ -4,6 +4,8 @@ const countryList = [...allCountryElements].map((elem) =>
   elem.getAttribute("title")
 );
 
+console.log(countryList)
+
 const addCountry = (countryName) => {
   const countryElement = document.querySelector(`[title="${countryName}"]`);
 

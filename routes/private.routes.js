@@ -58,9 +58,12 @@ router.post("/:username/travels/delete", async (req, res) => {
 
 router.get("/:username/travels/:id", async(req, res) => {
   const travelFromDb = await Travel.findOne({ _id: req.params.id });
+  // console.log( travelFromDb.dateStart instanceof Date ) // to check class instance
+  const dateStart = travelFromDb.dateStart.toISOString().split("T")[0];
+  const dateEnd = travelFromDb.dateEnd.toISOString().split("T")[0];
   res.render("travelDetails", {
     user: req.session.currentUser,
-    entry: travelFromDb,
+    entry: {...travelFromDb._doc, dateStart, dateEnd },
   });
 });
 
