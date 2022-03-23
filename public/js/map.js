@@ -15,8 +15,6 @@ travelModeElem.addEventListener("click", () => {
     adventureModeElem.className = "btn petrol selectAdventure active";
     adventureModeElem.innerText = "adventure mode!";
   }
-  console.log(travelModeElem.classList.contains("passive"))
-  console.log(travelModeElem.classList)
 });
 
 
@@ -34,7 +32,6 @@ adventureModeElem.addEventListener("click", () => {
   }
 });
 
-console.log(travelModeElem, adventureModeElem, allCountryElements);
 const countryList = [...allCountryElements].map((elem) =>
   elem.getAttribute("title")
 );
@@ -43,7 +40,12 @@ const addCountry = (countryName) => {
   const countryElement = document.querySelector(`[title="${countryName}"]`);
 
   countryElement.addEventListener("mouseover", () => {
-    countryElement.style.fill = "#FF8B42";
+    if (travelModeElem.classList.contains("active")) {
+        countryElement.style.fill = "#FF8B42";
+    }
+    if (adventureModeElem.classList.contains("active")) {
+        countryElement.style.fill = "#0098A3";
+    }
   });
 
   countryElement.addEventListener("click", async (event) => {

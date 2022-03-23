@@ -30,9 +30,9 @@
       <nav>
         <ul>
           {{#if user}}
-          <li><a href="/private/{{user.username}}">my overview</a></li>
+          <li><a href="/private/{{user.username}}">{{user.username}}'s map</a></li>
           <li><a href="/private/{{user.username}}/travels">past travels</a></li>
-          {{!-- <li><a href="/private/{{user.username}}/adventures">new adventures</a></li> --}}
+          <li><a href="/private/{{user.username}}/adventures">new adventures</a></li>
           {{!-- <li><a href="#">othertraventures</a></li> --}}
 
           <form action="/private/logout" method="POST">
