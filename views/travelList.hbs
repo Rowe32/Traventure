@@ -1,15 +1,30 @@
-<h1>These are your past travels: </h1>
+<div class="past-travels-div">
+<h1>past travels: </h1>
+</div>
+
 
 {{!-- <h3><a href="/private/{{user.username}}/travels/{{user._id}}">Link to example</a></h3> --}}
+<div class="ul-travels-container">
 
 <ul>
 {{#each travels }}
-    <li id="litograpthis"> {{ this.country }} {{ this.year }}</li>
+<div class="black-travel-box">
+    <div class="country-and-year-div">
+    <li id="litograpthis"> 
+        <div id="country-in-travel-box"> {{ this.country }} </div>
+        <div id="year-in-travel-box">{{ this.year }}</div></li>
+    </div>
+    <div class="btn-travel-box">  
     <button><a href="/private/{{../user.username}}/travels/{{this._id}}">edit</a></button>
     <form action="/private/{{ ../user.username }}/travels/delete" method="POST" >
             <input type="text" name="id" style="display:none" value="{{ this._id }}">
             <button type="submit">delete</button>
     </form>
+    </div>
+
+</div>
 
 {{/each}} 
 </ul>
+
+</div>

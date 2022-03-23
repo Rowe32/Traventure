@@ -1,5 +1,5 @@
 body {
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
   font-size: 1rem;
   margin: 0;
   padding: 0;
@@ -16,7 +16,6 @@ body {
   right: 0;
   height: 10vh;
   color: white;
-
 }
 
 .navbar-div * {
@@ -24,7 +23,7 @@ body {
 }
 
 .flavicon-and-name-div {
-  display:flex;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
 }
@@ -35,14 +34,14 @@ body {
 }
 
 .flavicon-and-name-div h3 {
-  margin:1vh;
+  margin: 1vh;
   font-size: 2rem;
 }
 
 .navbar-ul-div {
   display: flex;
   justify-content: flex-end;
-  margin:3vh;
+  margin: 3vh;
 }
 
 .navbar-ul-div a {
@@ -53,7 +52,7 @@ body {
 }
 
 .main-content {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -63,7 +62,7 @@ body {
 /* Style for index page */
 
 #index-header {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -71,32 +70,31 @@ body {
 }
 
 .btn {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: black;
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
   color: white;
   border-color: black;
-  
 }
 
 .btn:hover {
-  border: 0.5vh solid rgb(69,69,69);
-  background-color: rgb(69,69,69);
+  border: 0.5vh solid rgb(69, 69, 69);
+  background-color: rgb(69, 69, 69);
   color: white;
 }
 
 .btn:active {
-  border: 0.5vh solid rgb(69,69,69);
-  background-color: rgb(69,69,69);
+  border: 0.5vh solid rgb(69, 69, 69);
+  background-color: rgb(69, 69, 69);
   color: white;
   transform: translateY(1vh);
 }
 
 .btn a {
   text-decoration: none;
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
   font-size: 1.5rem;
   color: white;
 }
@@ -104,26 +102,129 @@ body {
 /* ------------------------------------ */
 /* Style for profile page */
 
+.greeting-div {
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+}
+
 #profile-greeting {
   display: flex;
   align-items: flex-start;
-
+  margin: 0;
+  padding-left: 3vw;
 }
 
 #world-map-partial {
+  display: flex;
+  justify-content: center;
   position: relative;
-  height: 80vh;
-  width: 90vw;
-  overflow: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: contain;
+  height: 70vh;
+  width: 100vw;
 }
 
 svg {
-max-height: 80vh;
-max-width: 90vw;
-object-fit: contain;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 95%;
 }
 
+.btn.orange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff8b42;
+  font-family: "Gaegu", cursive;
+  color: black;
+  border: 0.5vh solid #ff8b42;
+}
+
+.btn.orange:hover {
+  border: 0.5vh solid #f8ae7f;
+  background-color: #f8ae7f;
+  color: black;
+}
+
+.btn.orange:active {
+  border: 0.5vh solid #f8ae7f;
+  background-color: #f8ae7f;
+  color: white;
+  transform: translateY(1vh);
+}
+
+.btn.orange a {
+  text-decoration: none;
+  font-family: "Gaegu", cursive;
+  font-size: 1.5rem;
+  color: black;
+}
+
+/* ------------------------------------ */
+/* Style for past travels page */
+
+.past-travels-div {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.past-travels-div > h1 {
+  display: flex;
+  justify-content: flex-start;
+  width: 30 vw;
+  padding: 0 3vw;
+  margin-left: 3vw;
+  background-color: #ff8b42;
+  color: black;
+}
+
+.ul-travels-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+  width: 100vw;
+  padding-left: 6vw;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ul-travels-container li {
+  display: inline;
+}
+
+.black-travel-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+  background-color: black;
+  width: 50vw;
+  margin-bottom: 1vw;
+}
+
+.country-and-year-div {
+  display: flex;
+  justify-content: space-between;
+  align-items:baseline;
+}
+
+#country-in-travel-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #ff8b42;
+}
+
+#year-in-travel-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #ff8b42;
+}

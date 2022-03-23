@@ -1,9 +1,10 @@
-
+<div class="greeting-div">
 <h1 id="profile-greeting"> Welcome {{ user.username }} </h1>
+</div>
 
 {{!-- WORLD MAP --}}
 <div id="world-map-partial">
 {{> worldmap }}
 </div>
 
-<button class="btn"><a href="/private/{{ user.username }}/travels">See your past travels!</a></button>
+<button class="btn orange"><a href="/private/{{ user.username }}/travels">See your past travels!</a></button>
