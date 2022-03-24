@@ -25,6 +25,7 @@ getDataFromWikipedia();
 
 
 // css selector [attribute~="value"]
+//Array.from weglassen
 
 function setDisplayToNone() {
   let coatOfArms = infobox.querySelectorAll('a')
@@ -32,7 +33,7 @@ function setDisplayToNone() {
     if (elem.innerHTML.trim() === "Coat of arms" || elem.innerHTML.trim() === "Emblem") {
       elem.parentNode.parentNode.style.display = "none";
     }
-  })
+  }) 
 
   let anthem = infobox.querySelectorAll('b')
   Array.from(anthem).forEach((elem) => { 

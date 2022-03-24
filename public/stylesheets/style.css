@@ -282,7 +282,6 @@ ul {
   width: 35vw;
   margin-top: 5vh;
   border: 0.8vw #ff8b42 solid;
-  border-radius: 2vh;
   padding: 1vw;
 }
 
@@ -296,19 +295,3 @@ ul {
 .wiki > table > tbody > tr:nth-child(1) > th > div:nth-child(1) {
   font-size: 2.2rem;
 }
- 
-/* .wiki > table > tbody > tr:nth-child(2) > td > div > div:nth-child(2) {
-  display: none;
-} */
-/* 
-.wiki > table > tbody > tr:nth-child(3),
-.wiki > table > tbody > tr:nth-child(4),
-.wiki > table > tbody > tr:nth-child(9),
-.wiki > table > tbody > tr:nth-child(10),
-.wiki > table > tbody > tr:nth-child(11) {
-  display: none;
-} */
-/* 
-.wiki > table > tbody > tr:nth-child(6) > td > span {
-  display: none;
-} */
