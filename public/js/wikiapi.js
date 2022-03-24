@@ -24,35 +24,80 @@ async function getDataFromWikipedia() {
 getDataFromWikipedia();
 
 
-// css selector [attribute~="value"]
-//Array.from weglassen
-
 function setDisplayToNone() {
-  let coatOfArms = infobox.querySelectorAll('a')
-  Array.from(coatOfArms).forEach((elem) => { 
+  // to target all a tag elements in info box:
+  let aElems = infobox.querySelectorAll('a')
+  Array.from(aElems).forEach((elem) => {
+    
+    // alle hrefs entfernen da weiterleitung nicht funktioniert
+    elem.removeAttribute("href");
+
+    // take out coat of arms or emblem of infbox
     if (elem.innerHTML.trim() === "Coat of arms" || elem.innerHTML.trim() === "Emblem") {
       elem.parentNode.parentNode.style.display = "none";
+    } 
+
+      //take out Demonym
+    else if (elem.title === "Demonym") {
+      elem.parentNode.parentNode.style.display = "none";
+    } 
+
+    // cut infobox below formation / AREA / Independence
+    else if (elem.innerHTML.trim().toLowerCase() === "formation" 
+    || elem.innerHTML.trim().toLowerCase() === "area"
+    || elem.innerHTML.trim().toLowerCase() === "independence"
+    ) {
+      let current = elem.parentNode.parentNode;
+      let nextSibling = current.nextElementSibling;
+      current.style.display = "none";
+
+      while(nextSibling) {
+        nextSibling = nextSibling.nextElementSibling;
+        if (nextSibling === null) break
+        if (elem.innerHTML.trim().toLowerCase() === "population") continue // + darauffolgendes tr
+        nextSibling.style.display ="none"
+
+        // NOT DELETE: population in total & currency -> tr > child th inner text curreny keep td danach
+        // do delete religion and ethnicity
+
+        // console.log(nextSibling.firstChild.firstChild)
+        // if(nextSibling.firstChild.firstChild.innerHTML.trim().toLowerCase() === "population") break;
+      }
     }
-  }) 
+
+  })
+
+    // take out coordinates of capital
+
+  let spanElems = infobox.querySelectorAll('span')
+  Array.from(spanElems).forEach((elem) => { 
+    if (elem.className === "plainlinks nourlexpansion") {
+      elem.style.display = 'none';
+    }
+  })
+
+  // take out anthem & motto
 
   let anthem = infobox.querySelectorAll('b')
   Array.from(anthem).forEach((elem) => { 
     if (elem.innerHTML.toLowerCase() === "anthem:") {
       elem.parentNode.style.display = "none";
     }
-  })
 
-  let motto = infobox.querySelectorAll('b')
-  Array.from(motto).forEach((elem) => { 
-    console.log(elem.innerHTML)
-    if (elem.innerHTML.toLowerCase() === "motto:&nbsp;") {
+    else if (elem.innerHTML.toLowerCase() === "motto:&nbsp;") {
       elem.parentNode.style.display = "none";
     }
   })
+
+  // take out audio
 
   let audio = infobox.querySelectorAll('audio')
   Array.from(audio).forEach((elem) => { 
    elem.parentNode.parentNode.parentNode.style.display = "none";
   })
-  
+
+  let flag = infobox.querySelectorAll('img')
+  if (flag) {
+    (flag)[0].className += " flag"
+  }
 }

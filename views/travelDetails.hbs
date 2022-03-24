@@ -8,6 +8,7 @@
 
 {{#if entry}}
     <label for="country">Country:</label>
+    <br>
     <select id="country" name="country" required>
             <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
         {{#each countryNames}}
@@ -15,12 +16,13 @@
         {{/each}}
     </select>
 
-    <br>
+    <br><br>
 
     <label for="cities">Cities:</label>
+    <br>
     <input id="cities" type="text" name="cities" value="{{entry.cities}}">
 
-    <br>
+    <br><br>
 
     <label for="dateStart">Start of travel:</label>
     <input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
@@ -28,20 +30,24 @@
 
     <label for="dateEnd">End of travel:</label>
     <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
-    <br>
+    
+    <br><br>
     <div class="btn-container">
         <button class="btn orange" type="submit">Save travel!</button>
     </div>
 
 {{else}}
     <label for="country">Country:</label>
-    <input id="country" type="text" name="country" value="{{entry.country}}">
     <br>
+    <input id="country" type="text" name="country" value="{{entry.country}}">
+
+    <br><br>
 
     <label for="cities">Cities:</label>
+    <br>
     <input id="cities" type="text" name="cities" value="">
 
-    <br>
+    <br><br>
     <label for="dateStart">Start of travel:</label>
     <input id="dateStart" type="date" name="dateStart" value="">
     <br>
@@ -49,7 +55,7 @@
     <label for="dateEnd">End of travel:</label>
     <input id="dateEnd" type="date" name="dateEnd" value="">
     
-    <br>
+    <br><br>
     <div class="btn-container">
         <button class="btn orange" type="submit">Save travel!</button>
     </div>

@@ -268,11 +268,15 @@ ul {
   justify-content: center;
 }
 
-/* FUNKTIONIERT NICHT */
-.details-form > select > option {
-  width: fit-content;
+.btn-container button{
+  font-size: 1.2rem;
 }
+
 /* FUNKTIONIERT NICHT */
+.details-form input, select {
+  padding: 0.5vh;
+  font-size: 1rem;
+}
 
 .details-form > form > button {
   align-self: center;
@@ -294,4 +298,10 @@ ul {
 
 .wiki > table > tbody > tr:nth-child(1) > th > div:nth-child(1) {
   font-size: 2.2rem;
+}
+
+/* flagge noch vergrößern? */
+.flag {
+  width: 25vw;
+  height: 30vh;
 }
