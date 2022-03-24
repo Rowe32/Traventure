@@ -6,54 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     {{! tag for favicon }}
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/images/globe.png"
-    />
+    <link rel="icon" type="image/x-icon" href="/images/globe.png" />
     {{! tag for font Gaegu }}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
     <div class="navbar-div">
-       <div class="flavicon-and-name-div">
-      <img src="/images/220319_Favicon_white.png" />
-      <h3 id="nav-traventure">TRAVENTURE</h3>
-       </div>
+      <div class="flavicon-and-name-div">
+        <img src="/images/220319_Favicon_white.png" />
+        <h3 id="nav-traventure"><a href="/">TRAVENTURE</a></h3>
+      </div>
       <div class="navbar-ul-div">
-      <nav>
-        <ul>
-          {{#if user}}
-          <li><a href="/private/{{user.username}}">{{user.username}}'s map</a></li>
-          <li><a href="/private/{{user.username}}/travels">past travels</a></li>
-          <li><a href="/private/{{user.username}}/adventures">new adventures</a></li>
-          {{!-- <li><a href="#">othertraventures</a></li> --}}
+        <nav>
+          <ul>
+            {{#if user}}
+              <li><a href="/private/{{user.username}}">{{user.username}}'s world
+                  map</a></li>
+              <li><a href="/private/{{user.username}}/travels">past travels</a></li>
+              <li><a href="/private/{{user.username}}/adventures">new adventures</a></li>
+              <li><a href="#">other traventures</a></li>
 
-          <form action="/private/logout" method="POST">
-          <li><button type="submit">Logout</button></li>
-          </form>
+              <form action="/private/logout" method="POST">
+                <li><button class="logout-btn"type="submit">Logout</button></li>
+              </form>
 
+            {{else}}
+              <li><a href="/login">Login</a></li>
+            {{/if}}
 
-          {{else}}
-          <li><a href="/login">Login</a></li>
-          {{/if}}
-
-        </ul>
-      </nav>
+          </ul>
+        </nav>
       </div>
     </div>
 
-  <div class="main-content">
+    <div class="main-content">
+      {{#unless user}}
+      <div class="watermark">
+        <img id="semi-transparent-favicon" src="/images/220319_Favicon_black.png" alt="Semi-transparent Favicon">
+      </div>
+      {{/unless}}
 
-    {{{body}}}
+      {{{body}}}
 
-  </div>
+    </div>
     <script src="/js/script.js"></script>
   </body>
 

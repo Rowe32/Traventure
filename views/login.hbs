@@ -1,13 +1,19 @@
-<h1>Log in page</h1>
+<div class="description-div login">
+  <h1 class="header login">log in page</h1>
+</div>
 
+<div class="login-form-div">
 <form action="/login" method="POST">
 
-<input id="email" type="email" name="email" value="" placeholder="Email"/>
-<input type="password" name="password" value="" placeholder="Password"/>
-<button type="submit">Log in</button>
+  <input id="email" type="email" name="email" value="" placeholder="Email" />
+  <input type="password" name="password" value="" placeholder="Password" />
+  <button class="btn login" type="submit">Log in</button>
 
 </form>
+</div>
 
+<div class="error-message-div"></div>
 {{#if error}}
-    <h2>Hey this is an error</h2>
+  <h2 class="error-user">Upps... An error happend!</h2>
 {{/if}}
+</div>

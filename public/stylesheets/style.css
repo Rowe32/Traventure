@@ -38,6 +38,11 @@ body {
   font-size: 2rem;
 }
 
+#nav-traventure a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar-ul-div {
   display: flex;
   justify-content: flex-end;
@@ -51,22 +56,64 @@ body {
   margin-left: 2vw;
 }
 
+.logout-btn {
+  background-color: black;
+  color: white;
+  font-family: "Gaegu", cursive;
+  font-size: 1rem;
+  border: black;
+
+}
+
 .main-content {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+  z-index: 10;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+}
+
+.watermark {
+  position: absolute;
+  z-index: -1;
+  top: 8vh;
+}
+
+#semi-transparent-favicon {
+  opacity: 0.1;
+  width: 50vh;
 }
 
 /* ------------------------------------ */
 /* Style for index page */
+
+.description-div.login {
+  width: 100vw;
+  top: -8vh;
+}
+
+.description-div {
+  position: relative;
+  top: -10vh;
+}
 
 #index-header {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.signup-btn {
+  position: relative;
+  top: -10vh;
 }
 
 .btn {
@@ -77,6 +124,7 @@ body {
   font-family: "Gaegu", cursive;
   color: white;
   border-color: black;
+  padding: 0.1vw 3vw;
 }
 
 .btn:hover {
@@ -100,6 +148,162 @@ body {
 }
 
 /* ------------------------------------ */
+/* Style for signup & login page */
+.form-div {
+  position: relative;
+  top: -40vh;
+}
+
+.description-div.signup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: -5vh;
+}
+
+.signup-form-div {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -5vh;
+  width: 100vw;
+}
+
+.signup-form-div form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* position: relative;
+  top: -5vh;
+  width: 100vw; */
+}
+
+.signup-form-div input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1vh;
+  font-family: "Gaegu", cursive;
+  font-weight: bold;
+  background-color: black;
+  border: black;
+  color: white;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.5vh 0vh 0.5vh 1vh;
+}
+
+.signup-form-div.btn {
+  display: flex;
+    justify-content: center;
+    top: 4vh;
+    font-size: 1rem;
+    height: 3.5vh;
+    width: 16vh;
+    margin-left: 6vh;
+    padding: 1vh;
+}
+
+.signup-form-div input::placeholder {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.signup-form-div input::value {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+.error-message-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.btn.signup {
+  margin: 1vh;
+  font-size: 1rem;
+}
+
+.error-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------
+style for login page */
+/* The error message come from the signup page */
+
+.header.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.login-form-div {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -5vh;
+  width: 100vw;
+}
+.login-form-div form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* position: relative;
+  top: -5vh;
+  width: 100vw; */
+}
+
+.login-form-div input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1vh;
+  font-family: "Gaegu", cursive;
+  font-weight: bold;
+  background-color: black;
+  border: black;
+  color: white;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.5vh 0vh 0.5vh 1vh;
+}
+
+.btn.login {
+  margin: 1vh;
+  font-size: 1rem;
+}
+
+
+.login-form-div input::placeholder {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.login-form-div input::value {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+
+/* ------------------------------------ */
 /* Style for profile page */
 
 .greeting-div {
@@ -121,14 +325,20 @@ body {
   position: relative;
   height: 70vh;
   width: 100vw;
+  overflow: scroll;
+  object-fit: cover;
 }
 
 svg {
-  object-fit: contain;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 95%;
+  display: flex;
+    justify-content: center;
+    overflow: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    height: 100%;
+    width: 100%;
 }
 
 .btn.orange {
@@ -161,6 +371,50 @@ svg {
   color: black;
 }
 
+.btn.petrol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0098A3;
+  font-family: "Gaegu", cursive;
+  color: black;
+  border: 0.5vh solid #0098A3;
+  margin-left: 3vw;
+}
+
+.btn.petrol:hover {
+  border: 0.5vh solid #02bcc9;
+  background-color: #02bcc9;
+  color: black;
+}
+
+.btn.petrol:active {
+  border: 0.5vh solid #02bcc9;
+  background-color: #02bcc9;
+  color: white;
+  transform: translateY(1vh);
+}
+
+.btn.petrol a {
+  text-decoration: none;
+  font-family: "Gaegu", cursive;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.div-btn-link {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-btn-link.up {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: flex-end;
+
+}
+
 /* ------------------------------------ */
 /* Style for past travels page */
 
@@ -188,6 +442,7 @@ svg {
   flex-direction: column;
   width: 100vw;
   padding-left: 6vw;
+  height: 80vh;
 }
 
 ul {
@@ -196,30 +451,41 @@ ul {
 }
 
 .ul-travels-container li {
-  display: inline;
+  display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .black-travel-box {
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-direction: column;
-  background-color: black;
-  width: 50vw;
-  margin-bottom: 1vw;
+    justify-content: center;
+    align-items: baseline;
+    position: relative;
+    background-color: black;
+    width: 50vw;
+    margin-bottom: 1vw;
+    flex-wrap: wrap;
 }
 
 .country-and-year-div {
   display: flex;
-  justify-content: space-between;
-  align-items:baseline;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
 }
 
 #country-in-travel-box {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  color: #ff8b42;
+    justify-content: flex-start;
+    align-items: baseline;
+    color: #ff8b42;
+    width: 50%;
+    flex: 2;
+    font-size: 1.7rem;
+    margin-left: 1vh;
+    margin-top: 0.5vh;
 }
 
 #year-in-travel-box {
@@ -227,8 +493,67 @@ ul {
   justify-content: space-between;
   align-items: baseline;
   color: #ff8b42;
+  font-size: 1.7rem;
+  margin-right: 1vh;
+  margin-top: 0.5vh;
 }
 
+
+.btn-travel-box {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.btn-travel-box form{
+  margin: 0;
+  display: flex;
+  width: 20%;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.cities-travel-list {
+  display: flex;
+  color: #ff8b42;
+  width: 60%;
+  padding-left: 1vh;
+}
+
+.edit-btn-travel-list {
+  display: flex;
+    color: #ff8b42;
+    width: 20%;
+    text-decoration: none;
+    background: black;
+    border: 1vh #ff8b42;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.delete-btn-travel-list {
+  display: flex;
+  color: black;
+  /* width: 20%; */
+  text-decoration: none;
+  background: #ff8b42;
+  border: 1vh #ff8b42;
+  flex-wrap: wrap;
+}
+
+
+.btn-travel-box a {
+  text-decoration: none;
+  color: #ff8b42;
+  font-family: "Gaegu", cursive;
+  font-size: 1rem;
+}
+
+
+
 #debuggingId {
-  width:300px;
+  width: 300px;
 }
