@@ -300,8 +300,7 @@ ul {
   font-size: 2.2rem;
 }
 
-/* flagge noch vergrößern? */
 .flag {
-  width: 25vw;
-  height: 30vh;
+  width: 90%;
+  height: auto;
 }

@@ -56,12 +56,6 @@ function setDisplayToNone() {
         if (nextSibling === null) break
         if (elem.innerHTML.trim().toLowerCase() === "population") continue // + darauffolgendes tr
         nextSibling.style.display ="none"
-
-        // NOT DELETE: population in total & currency -> tr > child th inner text curreny keep td danach
-        // do delete religion and ethnicity
-
-        // console.log(nextSibling.firstChild.firstChild)
-        // if(nextSibling.firstChild.firstChild.innerHTML.trim().toLowerCase() === "population") break;
       }
     }
 
