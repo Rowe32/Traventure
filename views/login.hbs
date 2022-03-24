@@ -1,13 +1,43 @@
-<h1>Log in page</h1>
+{{!-- <div class="description-div">
+  <h1>Log in page</h1>
+</div>
 
 <form action="/login" method="POST">
 
-<input id="email" type="email" name="email" value="" placeholder="Email"/>
-<input type="password" name="password" value="" placeholder="Password"/>
-<button type="submit">Log in</button>
+  <input id="email" type="email" name="email" value="" placeholder="Email" />
+  <input type="password" name="password" value="" placeholder="Password" />
+  <button type="submit">Log in</button>
 
 </form>
 
 {{#if error}}
-    <h2>Hey this is an error</h2>
+  <h2>Hey this is an error</h2>
+{{/if}} --}}
+
+
+<div class="description-div signup">
+  <h1 id="index-header">log in page
+      <br>     
+  </h1>
+</div>
+
+<div class="signup-form-div">
+
+    <form action="/login" method="POST">
+
+  <input id="email" type="email" name="email" value="" placeholder="Email" />
+  <input type="password" name="password" value="" placeholder="Password" />
+  <button class="signup-form-div btn" type="submit">Log in</button>
+  <form action="/signup" method="POST">
+
+  </form>
+
+
+<div/>
+
+<div>
+{{#if error}}
+  <h2>Hey this is an error</h2>
 {{/if}}
+
+</div>

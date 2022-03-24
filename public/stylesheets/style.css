@@ -38,6 +38,11 @@ body {
   font-size: 2rem;
 }
 
+#nav-traventure a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar-ul-div {
   display: flex;
   justify-content: flex-end;
@@ -56,17 +61,45 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+  z-index: 10;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+}
+
+.watermark {
+  position: absolute;
+  z-index: -1;
+  top: 8vh;
+}
+
+#semi-transparent-favicon {
+  opacity: 0.1;
+  width: 50vh;
 }
 
 /* ------------------------------------ */
 /* Style for index page */
+
+.description-div {
+  position: relative;
+  top: -10vh;
+}
 
 #index-header {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.signup-btn {
+  position: relative;
+  top: -10vh;
 }
 
 .btn {
@@ -77,6 +110,7 @@ body {
   font-family: "Gaegu", cursive;
   color: white;
   border-color: black;
+  padding: 0.1vw 3vw;
 }
 
 .btn:hover {
@@ -97,6 +131,65 @@ body {
   font-family: "Gaegu", cursive;
   font-size: 1.5rem;
   color: white;
+}
+
+/* ------------------------------------ */
+/* Style for signup & login page */
+.form-div {
+  position: relative;
+  top: -40vh;
+}
+
+.description-div.signup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: -5vh;
+}
+
+.signup-form-div {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -5vh;
+  width: 100vw;
+}
+
+.signup-form-div input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2vh;
+  font-family: "Gaegu", cursive;
+  font-weight: bold;
+  background-color: black;
+  border: black;
+  color: white;
+  font-weight: 300;
+}
+
+.signup-form-div.btn {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 4vh;
+  width: 16vh;
+  margin-left: 2.5vw;
+}
+
+.signup-form-div input::placeholder {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+.signup-form-div input::value {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
 }
 
 /* ------------------------------------ */
@@ -121,14 +214,20 @@ body {
   position: relative;
   height: 70vh;
   width: 100vw;
+  overflow: scroll;
+  object-fit: cover;
 }
 
 svg {
-  object-fit: contain;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 95%;
+  display: flex;
+    justify-content: center;
+    overflow: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    height: 100%;
+    width: 100%;
 }
 
 .btn.orange {
@@ -159,6 +258,50 @@ svg {
   font-family: "Gaegu", cursive;
   font-size: 1.5rem;
   color: black;
+}
+
+.btn.petrol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0098A3;
+  font-family: "Gaegu", cursive;
+  color: black;
+  border: 0.5vh solid #0098A3;
+  margin-left: 3vw;
+}
+
+.btn.petrol:hover {
+  border: 0.5vh solid #02bcc9;
+  background-color: #02bcc9;
+  color: black;
+}
+
+.btn.petrol:active {
+  border: 0.5vh solid #02bcc9;
+  background-color: #02bcc9;
+  color: white;
+  transform: translateY(1vh);
+}
+
+.btn.petrol a {
+  text-decoration: none;
+  font-family: "Gaegu", cursive;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.div-btn-link {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-btn-link.up {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: flex-end;
+
 }
 
 /* ------------------------------------ */
@@ -212,7 +355,7 @@ ul {
 .country-and-year-div {
   display: flex;
   justify-content: space-between;
-  align-items:baseline;
+  align-items: baseline;
 }
 
 #country-in-travel-box {
@@ -230,5 +373,5 @@ ul {
 }
 
 #debuggingId {
-  width:300px;
+  width: 300px;
 }

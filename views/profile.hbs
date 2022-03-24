@@ -2,14 +2,19 @@
 <h1 id="profile-greeting"> Welcome {{ user.username }} </h1>
 </div>
 
-<button class="btn orange selectTravel active">travel mode!</a></button>
-<button class="btn petrol selectAdventure passive">add adventure!</a></button>
+<div class="div-btn-link up">
+    <button class="btn orange selectTravel active">travel mode!</a></button>
+    <button class="btn petrol selectAdventure passive">add adventure!</a></button>
+</div>
 
 {{!-- WORLD MAP --}}
 <div id="world-map-partial">
 {{> worldmap }}
 </div>
 
-<button class="btn orange"><a href="/private/{{ user.username }}/travels">See your past travels!</a></button>
+<div class="div-btn-link bottom">
+<button class="btn orange"><a href="/private/{{ user.username }}/travels">see past travels!</a></button>
+<button class="btn petrol"><a href="/private/{{ user.username }}/travels">see new adventures!</a></button>
+</div>
 
 
