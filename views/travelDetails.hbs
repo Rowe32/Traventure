@@ -2,7 +2,9 @@
 
 <div class="details-form">
 
-<h3 class="details-heading">your past travel:</h3>
+<div class="header-div">
+    <h1> - your travel -</h1>
+</div>
 
 <form action="/private/{{user.username}}/travels/{{entry._id}}" method="POST">
 
@@ -30,7 +32,7 @@
 
     <label for="dateEnd">End of travel:</label>
     <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
-    
+
     <br><br>
     <div class="btn-container">
         <button class="btn orange" type="submit">Save travel!</button>
