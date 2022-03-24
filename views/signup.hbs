@@ -17,18 +17,16 @@
     />
     <input id="email" type="email" name="email" value="" placeholder="Email" />
     <input type="password" name="password" value="" placeholder="Password" />
-    <input type="password" name="repeatpassword" value="" placeholder="Repeat password" />
-    <button class="signup-form-div btn" type="submit">sign up!</button>
+    <button class="btn signup" type="submit">sign up!</button>
 
   </form>
 
 
-<div/>
+</div>
 
 <div class="error-message-div">
 {{#if error}}
-  <h2>Hey this is an error</h2>
+  <h2 class="error-user">Upps... An error happend!</h2>
 {{/if}}
-
 </div>
 
