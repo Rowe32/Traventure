@@ -236,7 +236,7 @@ ul {
 
 /* ------------------------------------ */
 /* Style for details page */
-.details-container {
+.detailspage-container {
   display: flex;
   width: 90vw;
   justify-content: space-between;
@@ -248,16 +248,67 @@ ul {
   background-color: #ff8b42;
 }
 
-.detail-form {
-  width: 50vw;
+.details-form {
+  width: 40vw;
 }
 
+.details-form > form {
+  background-color: black;
+  padding: 2vh;
+  color: #ff8b42;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.details-form > form > * {
+  margin: 1vh;
+}
 
-/* button classes */
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* FUNKTIONIERT NICHT */
+.details-form > select > option {
+  width: fit-content;
+}
+/* FUNKTIONIERT NICHT */
+
+.details-form > form > button {
+  align-self: center;
+}
+
 .wiki {
-  width: 30vw;
+  width: 35vw;
   margin-top: 5vh;
   border: 0.8vw #ff8b42 solid;
   border-radius: 2vh;
-  padding: 2vw;
+  padding: 1vw;
 }
+
+/* Links funtionieren nicht mehr aus wiki, daher entfernen */
+.wiki * {
+  text-decoration: none;
+  color: black;
+  padding: 0.5vh;
+}
+
+.wiki > table > tbody > tr:nth-child(1) > th > div:nth-child(1) {
+  font-size: 2.2rem;
+}
+ 
+/* .wiki > table > tbody > tr:nth-child(2) > td > div > div:nth-child(2) {
+  display: none;
+} */
+/* 
+.wiki > table > tbody > tr:nth-child(3),
+.wiki > table > tbody > tr:nth-child(4),
+.wiki > table > tbody > tr:nth-child(9),
+.wiki > table > tbody > tr:nth-child(10),
+.wiki > table > tbody > tr:nth-child(11) {
+  display: none;
+} */
+/* 
+.wiki > table > tbody > tr:nth-child(6) > td > span {
+  display: none;
+} */
