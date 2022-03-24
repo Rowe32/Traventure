@@ -191,7 +191,7 @@ body {
   border: black;
   color: white;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.7rem;
   padding: 0.5vh 0vh 0.5vh 1vh;
 }
 
@@ -210,7 +210,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 1.7rem;
 }
 
 .signup-form-div input::value {
@@ -228,7 +228,7 @@ body {
 
 .btn.signup {
   margin: 1vh;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .error-user {
@@ -279,13 +279,13 @@ style for login page */
   border: black;
   color: white;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.7rem;
   padding: 0.5vh 0vh 0.5vh 1vh;
 }
 
 .btn.login {
   margin: 1vh;
-  font-size: 1rem;
+  font-size: 1.7rem;
 }
 
 
@@ -293,7 +293,7 @@ style for login page */
   color: white;
   text-decoration: none;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 1.7rem;
 }
 
 .login-form-div input::value {
@@ -321,24 +321,22 @@ style for login page */
 
 #world-map-partial {
   display: flex;
-  justify-content: center;
-  position: relative;
-  height: 70vh;
-  width: 100vw;
-  overflow: scroll;
-  object-fit: cover;
+    justify-content: center;
+    position: relative;
+    height: 70vh;
+    width: 100vw;
+    /* overflow: scroll; */
 }
 
 svg {
   display: flex;
-    justify-content: center;
-    overflow: auto;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    left: 20vw;
-    height: 100%;
-    width: 100%;
+  justify-content: center;
+  /* overflow: auto; */
+  position: absolute;
+  top: 0;
+  left: 20vw;
+  height: 100%;
+  width: 100%;
 }
 
 .btn.orange {
@@ -349,6 +347,7 @@ svg {
   font-family: "Gaegu", cursive;
   color: black;
   border: 0.5vh solid #ff8b42;
+  font-size: 1.2rem;
 }
 
 .btn.orange:hover {
@@ -380,6 +379,7 @@ svg {
   color: black;
   border: 0.5vh solid #0098A3;
   margin-left: 3vw;
+  font-size: 1.2rem;
 }
 
 .btn.petrol:hover {

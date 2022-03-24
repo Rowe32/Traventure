@@ -1,6 +1,11 @@
+<div class="description-div signup">
+  <h1 id="index-header">sign up page
+      <br>     
+  </h1>
+</div>
 
+<div class="signup-form-div">
 <form action="/signup" method="POST" onsubmit="return checkForm(this);">
-  <fieldset>
     <input
       id="username"
       type="text"
@@ -20,16 +25,13 @@
       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
       onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
   if(this.checkValidity()) form.password2.pattern = RegExp.escape(this.value);">
-    <button type="submit">Sign up</button>
-  </fieldset>
+    <button class="btn signup" type="submit">Sign up</button>
 </form>
-
-  </form>
-
-
 </div>
+
 
 <div class="error-message-div">
 {{#if error}}
-  <h2>Hey this is an error</h2>
+  <h2 class="error-user">Upps... An error happend!</h2>
 {{/if}}
+</div>
