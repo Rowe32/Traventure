@@ -43,6 +43,8 @@ New Adventure List
 Profiles of other travelers
 - I can see other users
 
+Sign up
+- Add server side password validation
 
 ## ROUTES:
 
