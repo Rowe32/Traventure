@@ -1,14 +1,33 @@
 <h1>Sign up page</h1>
 
-<form action="/signup" method="POST">
-
-<input id="username" type="text" name="username" value="" placeholder="Username"/>
-<input id="email" type="email" name="email" value="" placeholder="Email"/>
-<input type="password" name="password" value="" placeholder="Password"/>
-<button type="submit">Sign up</button>
-
+<form action="/signup" method="POST" onsubmit="return checkForm(this);">
+  <fieldset>
+    <input
+      id="username"
+      type="text"
+      name="username"
+      value=""
+      placeholder="Username"
+      required
+    />
+    <input id="email" type="email" name="email" value="" placeholder="Email" />
+    <input
+      type="password"
+      title="Password must contain at least 6 characters, including at least one Upper & one lowercase & numbers"
+      name="password1"
+      value=""
+      placeholder="Password"
+      required
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+      onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+  if(this.checkValidity()) form.password2.pattern = RegExp.escape(this.value);">
+    <button type="submit">Sign up</button>
+  </fieldset>
 </form>
 
 {{#if error}}
-    <h2>Hey this is an error</h2>
+  <h2>Hey this is an error</h2>
 {{/if}}
+
+{{!-- 1Aasdfg
+Ziegel@email.com 1Aasdf--}}
