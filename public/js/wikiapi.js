@@ -8,7 +8,11 @@ async function getDataFromWikipedia() {
   const data = await response.json();
   
   const wikiContainer = document.getElementById("wikiInfo");
- 
+  
+  // weiter runterbrechen: table tbody tr 
+  // population nur erster punkt!!
+  //currency
+  
   let myParser = new DOMParser()
   let virtualDOM = myParser.parseFromString(data.parse.text, "text/html");
   const infobox = virtualDOM.querySelector(".infobox");

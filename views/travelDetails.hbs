@@ -1,70 +1,59 @@
-<h3>your past travel:</h3>
+<div class="details-container">
+
+<div class="detail-form">
+
+<h3 class="details-heading">your past travel:</h3>
 
 <form action="/private/{{user.username}}/travels/{{entry._id}}" method="POST">
 
-
 {{#if entry}}
-<label for="country">Country:</label>
-<select id="country" name="country" required>
-        <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
-    {{#each countryNames}}
-        <option value="{{this}}">{{this}}</option>
-    {{/each}}
-</select>
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+            <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
+        {{#each countryNames}}
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
 
-{{!-- <input id="country" type="select" name="country" value="{{entry.country}}">
-<br> --}}
-<label for="cities">Cities:</label>
-<input id="cities" type="text" name="cities" value="{{entry.cities}}">
-{{!-- <br>
-<label for="travelName">Travel Name:</label>
-<input id="travelName" type="text" name="travelName" value=""> --}}
-<br>
-<label for="dateStart">Start of travel:</label>
-<input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
-<br>
-<label for="dateEnd">End of travel:</label>
-<input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
-{{!-- <br>
-<label for="categories">Categories:</label>
-<input id="categories" type="text" name="categories" value=""> --}}
-{{!-- <br>
-<label for="experience">Experience:</label>
-<input id="experience" type="text" name="experience" value=""> --}}
-{{!-- <br>
-<label for="photo">Photo:</label>
-<input id="photo" type="text" name="photo" value=""> --}}
-<button type="submit">Save travel!</button>
+    <label for="cities">Cities:</label>
+    <input id="cities" type="text" name="cities" value="{{entry.cities}}">
+
+    <br>
+
+    <label for="dateStart">Start of travel:</label>
+    <input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
+    <br>
+
+    <label for="dateEnd">End of travel:</label>
+    <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
+    
+    <button type="submit">Save travel!</button>
 
 {{else}}
-<label for="country">Country:</label>
-<input id="country" type="text" name="country" value="{{entry.country}}">
-<br>
-<label for="cities">Cities:</label>
-<input id="cities" type="text" name="cities" value="">
-{{!-- <br>
-<label for="travelName">Travel Name:</label>
-<input id="travelName" type="text" name="travelName" value=""> --}}
-<br>
-<label for="dateStart">Start of travel:</label>
-<input id="dateStart" type="date" name="dateStart" value="">
-<br>
-<label for="dateEnd">End of travel:</label>
-<input id="dateEnd" type="date" name="dateEnd" value="">
-{{!-- <br>
-<label for="categories">Categories:</label>
-<input id="categories" type="text" name="categories" value=""> --}}
-{{!-- <br>
-<label for="experience">Experience:</label>
-<input id="experience" type="text" name="experience" value=""> --}}
-{{!-- <br>
-<label for="photo">Photo:</label>
-<input id="photo" type="text" name="photo" value=""> --}}
-<button type="submit">Save travel!</button>
+    <label for="country">Country:</label>
+    <input id="country" type="text" name="country" value="{{entry.country}}">
+    <br>
+
+    <label for="cities">Cities:</label>
+    <input id="cities" type="text" name="cities" value="">
+
+    <br>
+    <label for="dateStart">Start of travel:</label>
+    <input id="dateStart" type="date" name="dateStart" value="">
+    <br>
+
+    <label for="dateEnd">End of travel:</label>
+    <input id="dateEnd" type="date" name="dateEnd" value="">
+    
+    <button type="submit">Save travel!</button>
 {{/if }}
 
 </form>
 
-<div id="wikiInfo"></div>
+</div>
+
+<div id="wikiInfo" class="wiki"></div>
+
+</div>
 
 <script src="/js/wikiapi.js"></script>

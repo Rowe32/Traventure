@@ -232,3 +232,30 @@ ul {
 #debuggingId {
   width:300px;
 }
+
+
+/* ------------------------------------ */
+/* Style for details page */
+.details-container {
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+}
+
+.details-heading {
+  text-align: center;
+  font-size: 2rem;
+  background-color: #ff8b42;
+}
+
+.detail-form {
+  width: 50vw;
+}
+
+.wiki {
+  width: 30vw;
+  margin-top: 5vh;
+  border: 0.8vw #ff8b42 solid;
+  border-radius: 2vh;
+  padding: 2vw;
+}
