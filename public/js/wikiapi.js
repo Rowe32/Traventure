@@ -9,7 +9,7 @@ async function getDataFromWikipedia() {
   const response = await fetch(endpoint);
   const data = await response.json();
   
-  const wikiContainer = document.getElementById("wikiInfo");
+  const wikiContainer = document.querySelector(".wiki");
    
   let myParser = new DOMParser()
   let virtualDOM = myParser.parseFromString(data.parse.text, "text/html");

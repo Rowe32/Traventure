@@ -1,9 +1,9 @@
 <div class="detailspage-container">
 
-<div class="details-form">
+<div class="details-form" id="travel-form">
 
 <div class="header-div">
-    <h1> - your travel -</h1> 
+    <h1 id="travel-header"> - your travel -</h1> 
 </div>
 
 <form action="/private/{{user.username}}/travels/{{entry._id}}" method="POST">
@@ -51,7 +51,7 @@
     <input id="cities" type="text" name="cities" value="">
 
     <br><br>
-    
+
     <label for="dateStart">Start of travel:</label>
     <input id="dateStart" type="date" name="dateStart" value="">
     <br>
@@ -69,7 +69,7 @@
 
 </div>
 
-<div id="wikiInfo" class="wiki"></div>
+<div id="wiki-travel" class="wiki"></div>
 
 </div>
 

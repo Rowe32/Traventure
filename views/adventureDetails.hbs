@@ -1,75 +1,74 @@
 <div class="detailspage-container">
+    <div class="details-form" id="adventure-form">
 
-<div class="details-form">
+        <div class="header-div">
+            <h1 id="adventure-header"> - your adventure - </h1>
+        </div>
 
-<div class="header-div">
-    <h1> - your adventure -</h1>
-</div>
+        <form action="/private/{{user.username}}/adventures/{{entry._id}}" method="POST">
 
-<form action="/private/{{user.username}}/adventures/{{entry._id}}" method="POST">
+        {{#if entry}}
+            <label for="country">Country:</label>
+            <br>
+            <select id="country" name="country" required>
+                    <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
+                {{#each countryNames}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
 
-{{#if entry}}
-<label for="country">Country:</label>
-<br>
-<select id="country" name="country" required>
-        <option id="selectedCountry" selected="{{entry.country}}" value="{{entry.country}}">{{entry.country}}</option>
-    {{#each countryNames}}
-        <option value="{{this}}">{{this}}</option>
-    {{/each}}
-</select>
+            <br><br>
 
-<br><br>
+            <label for="cities">Cities:</label>
+            <br>
+            <input id="cities" type="text" name="cities" value="{{entry.cities}}">
 
-<label for="cities">Cities:</label>
-<br>
-<input id="cities" type="text" name="cities" value="{{entry.cities}}">
+            <br><br>
 
-<br><br>
+            <label for="dateStart">Start of adventure:</label>
+            <input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
+            <br>
 
-<label for="dateStart">Start of adventure:</label>
-<input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
-<br>
+            <label for="dateEnd">End of adventure:</label>
+            <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
 
-<label for="dateEnd">End of adventure:</label>
-<input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
+            <br><br>
 
-<br><br>
+            <div class="btn-container">
+                <button class="btn petrol" type="submit">Save adventure!</button>
+            </div>
 
-<div class="btn-container"></div>
-    <button class="btn petrol" type="submit">Save adventure!</button>
-</div>
+        {{else}}
+            <label for="country">Country:</label>
+            <br>
+            <input id="country" type="text" name="country" value="{{entry.country}}">
 
-{{else}}
-<label for="country">Country:</label>
-<br>
-<input id="country" type="text" name="country" value="{{entry.country}}">
+            <br><br>
 
-<br><br>
+            <label for="cities">Cities:</label>
+            <br>
+            <input id="cities" type="text" name="cities" value="">
 
-<label for="cities">Cities:</label>
-<br>
-<input id="cities" type="text" name="cities" value="">
+            <br><br>
 
-<br><br>
+            <label for="dateStart">Start of adventure:</label>
+            <input id="dateStart" type="date" name="dateStart" value="">
+            <br>
 
-<label for="dateStart">Start of adventure:</label>
-<input id="dateStart" type="date" name="dateStart" value="">
-<br>
+            <label for="dateEnd">End of adventure:</label>
+            <input id="dateEnd" type="date" name="dateEnd" value="">
 
-<label for="dateEnd">End of adventure:</label>
-<input id="dateEnd" type="date" name="dateEnd" value="">
+            <br><br>
+            <div class="btn-container">
+                <button  class="btn petrol" type="submit">Save adventure!</button>
+            </div>
+        {{/if }}
 
-<br><br>
-<div class="btn-container"></div>
-    <button  class="btn petrol" type="submit">Save adventure!</button>
-</div>
-{{/if }}
+        </form>
 
-</form>
+    </div>
 
-</div>
-
-<div id="wikiInfo" class="wiki"></div>
+    <div id="wiki-adventure" class="wiki"></div>
 
 </div>
 
