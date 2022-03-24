@@ -3,19 +3,19 @@ const travelModeElem = document.querySelector(".selectTravel");
 const adventureModeElem = document.querySelector(".selectAdventure");
 
 travelModeElem.addEventListener("click", () => {
-  const isActive = travelModeElem === 'travel mode!'
-  travelModeElem.innerText = isActive ? "travel mode!" : "add travel!"
+  const isActive = travelModeElem === 'travel mode active!';
+  travelModeElem.innerText = isActive ? "add travel!" : "travel mode active!";
   travelModeElem.className = isActive ? "btn orange selectTravel passive" : "btn orange selectTravel active"
-  adventureModeElem.innerText = isActive ? "add adventure!" : "adventure mode!"
+  adventureModeElem.innerText = isActive ? "adventure mode active!" : "add adventure!"
   adventureModeElem.className = isActive ? "btn petrol selectAdventure active" : "btn petrol selectAdventure passive"
 });
 
 adventureModeElem.addEventListener("click", () => {
-  const isActive = travelModeElem === 'adventure mode!'
-  travelModeElem.innerText = isActive ? "add travel!" : "travel mode!"
-  travelModeElem.className = isActive ? "btn orange selectTravel active" : "btn orange selectTravel passive"
-  adventureModeElem.innerText = isActive ? "adventure mode!" : "add adventure!"
+  const isActive = adventureModeElem === 'adventure mode active!'
+  adventureModeElem.innerText = isActive ? "add adventure!" : "adventure mode active!"
   adventureModeElem.className = isActive ? "btn petrol selectAdventure passive" : "btn petrol selectAdventure active"
+  travelModeElem.innerText = isActive ? "travel mode active!" : "add travel!"
+  travelModeElem.className = isActive ? "btn orange selectTravel active" : "btn orange selectTravel passive"
 });
 
 const countryList = [...allCountryElements].map((elem) =>
