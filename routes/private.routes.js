@@ -8,11 +8,6 @@ const countryNames = require("../db/countryNames");
 
 router.use(requireLogin);
 
-router.get("/test", async (req, res) => {
-  const travel = await User.find().populate("travels");
-  // console.log("Heyy its me", travel);
-  res.send("Send nothing");
-});
 router.get("/:username", (req, res) => {
   //req.params.username
   res.render("profile", { user: req.session.currentUser });
