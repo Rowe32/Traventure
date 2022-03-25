@@ -700,6 +700,12 @@ ul {
   height: auto;
 }
 
+.smaller {
+  width: 20%;
+  height: auto;
+}
+
+
 /* ------------------------------------ */
 /* Style for adventure list page */
 
@@ -792,7 +798,3 @@ ul {
   justify-content: center;
 }
 
-.smaller {
-  width: 20%;
-  height: auto;
-}
