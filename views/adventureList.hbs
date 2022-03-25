@@ -1,4 +1,8 @@
-<div class="past-travels-div">
+<div class="watermark travelList">
+        <img class="semi-transparent-favicon" src="/images/220319_Favicon_black.png" alt="Semi-transparent Favicon">
+</div>
+
+<div class="past-travels-div adventureList">
 <h1>new adventures: </h1>
 </div>
 
@@ -8,17 +12,24 @@
 
 <ul>
 {{#each adventures }}
+
 <div class="black-travel-box">
     <div class="country-and-year-div">
     <li id="litograpthis"> 
-        <div id="country-in-travel-box"> {{ this.country }} </div>
-        <div id="year-in-travel-box">{{ this.year }}</div></li>
+        <div id="country-in-travel-box-adventure"> {{ this.country }} </div>
+        <div id="year-in-travel-box-adventure">{{ this.year }}</div></li>
     </div>
     <div class="btn-travel-box">  
-    <button><a href="/private/{{../user.username}}/adventures/{{this._id}}">edit</a></button>
+        <h3 class="cities-travel-list-adventure"><i class="fa-solid fa-building-columns">
+  </i>{{this.cities}}</h3>
+  <div class="edit-btn-travel-list-div">
+
+    <button class="edit-btn-travel-list-adventure"><a href="/private/{{../user.username}}/adventures/{{this._id}}">edit <i class="fa-solid fa-pencil"></i></a></button>
+  </div>
     <form action="/private/{{ ../user.username }}/adventures/delete" method="POST" >
+
             <input id="debuggingId" style="display:none" type="text" name="id" value="{{ this._id }}">
-            <button type="submit">delete</button>
+            <button class="delete-btn-travel-list-adventure" type="submit">delete <i class="fa-solid fa-trash-can"></i></button>
     </form>
     </div>
 
