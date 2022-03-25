@@ -442,6 +442,7 @@ svg {
     background-color: #ff8b42;
     font-size: 2.5rem;
     color: black;
+    margin-bottom: 9vh;
 }
 
 .ul-travels-container {
@@ -734,7 +735,7 @@ ul {
     background-color: #0098A3;
     font-size: 2.5rem;
     color: black;
-
+    margin-bottom: 9vh;
 }
 
 #country-in-travel-box-adventure {
