@@ -23,12 +23,12 @@ adventureModeElem.addEventListener("click", () => {
     travelModeElem.className = "btn orange selectTravel passive";
     travelModeElem.innerText = "add travel!";
     adventureModeElem.className = "btn petrol selectAdventure active";
-    adventureModeElem.innerText = "adventure mode!";
+    adventureModeElem.innerText = "adventure mode active!";
   } else {
     adventureModeElem.className = "btn petrol selectAdventure passive";
     adventureModeElem.innerText = "add adventure!";
     travelModeElem.className = "btn orange selectTravel active";
-    travelModeElem.innerText = "travel mode!";
+    travelModeElem.innerText = "travel mode active!";
   }
 });
 
