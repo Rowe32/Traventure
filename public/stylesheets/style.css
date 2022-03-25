@@ -654,6 +654,11 @@ ul {
 }
 
 .flag {
-  width: 90%;
+  width: 80%;
+  height: auto;
+}
+
+.smaller {
+  width: 20%;
   height: auto;
 }
