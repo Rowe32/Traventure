@@ -602,7 +602,8 @@ ul {
 
 
 /* ------------------------------------ */
-/* Style for details page */
+/* Style for the details pages */
+
 .detailspage-container {
   display: flex;
   width: 90vw;
@@ -625,17 +626,32 @@ ul {
   justify-content: flex-start;
   width: 30 vw;
   padding: 0 3vw;
-  background-color: #ff8b42;
   color: black;
+}
+
+#travel-header {
+  background-color: #ff8b42;
+}
+
+#adventure-header {
+  background-color: #0098A3;
 }
 
 .details-form > form {
   background-color: black;
   padding: 2vh;
-  color: #ff8b42;
   font-size: 1.3rem;
   font-weight: bold;
 }
+
+#travel-form{
+  color: #ff8b42;
+}
+
+#adventure-form {
+  color: #0098A3;
+}
+
 .details-form > form > * {
   margin: 1vh;
 }
@@ -645,11 +661,10 @@ ul {
   justify-content: center;
 }
 
-.btn-container button{
-  font-size: 1.2rem;
+.btn-container button {
+  font-size: 1.3rem;
 }
 
-/* FUNKTIONIERT NICHT */
 .details-form input, select {
   padding: 0.5vh;
   font-size: 1rem;
@@ -663,23 +678,25 @@ ul {
   margin-top: 2.5vh;
   margin-bottom: 5vh;
   width: 35vw;
-  border: 0.8vw #ff8b42 solid;
+  border: 0.8vw solid;
   padding: 1vw;
 }
 
-/* Links funtionieren nicht mehr aus wiki, daher entfernen */
-.wiki * {
-  text-decoration: none;
-  color: black;
-  padding: 0.5vh;
+#wiki-travel {
+  border-color: #ff8b42;
 }
 
+#wiki-adventure {
+  border-color: #0098A3;
+}
+
+/* bigger country name */
 .wiki > table > tbody > tr:nth-child(1) > th > div:nth-child(1) {
   font-size: 2.2rem;
 }
 
 .flag {
-  width: 90%;
+  width: 80%;
   height: auto;
 }
 
@@ -773,4 +790,9 @@ ul {
   font-family: "Gaegu", cursive;
   align-content: center;
   justify-content: center;
+}
+
+.smaller {
+  width: 20%;
+  height: auto;
 }
