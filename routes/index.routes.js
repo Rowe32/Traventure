@@ -18,8 +18,9 @@ router.get("/signup", (req, res, next) => {
 router.post("/signup", async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
+    console.log(req.body);
     const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash("password", salt);
+    const hash = await bcrypt.hash(password, salt);
 
     const user = {
       username: username,
@@ -46,14 +47,19 @@ router.get("/login", (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-
+    console.log("from index post", req.body);
     const loggedUser = await User.findOne({ email });
     const checkPassword = await bcrypt.compare(password, loggedUser.password);
 
     if (checkPassword) {
       req.session.currentUser = loggedUser;
+      console.log("from index after loggedUser", req.session.currentUser)
       res.redirect(`/private/${loggedUser.username}`);
+    } else {
+
+      throw Error;
     }
+
   } catch (err) {
     console.error(err);
     res.render("login", { error: "This is an error" });

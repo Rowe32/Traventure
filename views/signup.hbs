@@ -4,8 +4,10 @@
   </h1>
 </div>
 
+{{!-- onsubmit="return checkForm(this) --}}
+
 <div class="signup-form-div">
-<form action="/signup" method="POST" onsubmit="return checkForm(this);">
+<form action="/signup" method="POST">
     <input
       id="username"
       type="text"
@@ -18,13 +20,13 @@
     <input
       type="password"
       title="Password must contain at least 6 characters, including at least one Upper & one lowercase & numbers"
-      name="password1"
+      name="password"
       value=""
       placeholder="Password"
       required
       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-      onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
-  if(this.checkValidity()) form.password2.pattern = RegExp.escape(this.value);">
+      onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
+  {{!-- if(this.checkValidity()) form.password2.pattern = RegExp.escape(this.value);"> --}}
     <button class="btn signup" type="submit">Sign up</button>
 </form>
 </div>

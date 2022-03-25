@@ -5,10 +5,10 @@ const User = require("../models/User.model");
 const Adventure = require("../models/Adventure.model");
 const countryNames = require("../db/countryNames");
 
-router.use(requireLogin);
+// router.use(requireLogin);
 
 // display all adventures created by user:
-router.get("/:username/adventures", async (req, res) => {
+router.get("/:username/adventures",requireLogin, async (req, res) => {
   const allAdventures = await Adventure.find({owner: req.session.currentUser._id });
   res.render("adventureList", {
     user: req.session.currentUser,
@@ -18,7 +18,7 @@ router.get("/:username/adventures", async (req, res) => {
 
 
 // create new adventure if user adds country via world map
-router.post("/:username/adventures", async (req, res) => {
+router.post("/:username/adventures", requireLogin, async (req, res) => {
   const owner = await User.findOne({
     username: req.session.currentUser.username,
   });
@@ -40,7 +40,7 @@ router.post("/:username/adventures", async (req, res) => {
 
 
 // delete adventure entry
-router.post("/:username/adventures/delete", async (req, res) => {
+router.post("/:username/adventures/delete",requireLogin, async (req, res) => {
   const adventureID = req.body.id;
   await Adventure.findByIdAndDelete(adventureID);
   await User.findOneAndUpdate({ username : req.session.currentUser.username }, { $pull : { adventures: adventureID } })
@@ -49,7 +49,7 @@ router.post("/:username/adventures/delete", async (req, res) => {
 
 
 // display individual adventure entry (pre-filled if edited before)
-router.get("/:username/adventures/:id", async(req, res) => {
+router.get("/:username/adventures/:id", requireLogin, async(req, res) => {
   const adventureFromDb = await Adventure.findOne({ _id: req.params.id });
   const dateStart = adventureFromDb.dateStart.toISOString().split("T")[0];
   const dateEnd = adventureFromDb.dateEnd.toISOString().split("T")[0];
@@ -62,7 +62,7 @@ router.get("/:username/adventures/:id", async(req, res) => {
 
 
 // save edited adventure entry
-router.post("/:username/adventures/:id", async (req, res, next) => {
+router.post("/:username/adventures/:id", requireLogin, async (req, res, next) => {
   const { country, cities, dateStart, dateEnd } = req.body;
 
   const updatedAdventure = {

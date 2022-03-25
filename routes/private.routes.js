@@ -6,16 +6,16 @@ const Travel = require("../models/Travel.model");
 const Adventure = require("../models/Adventure.model");
 const countryNames = require("../db/countryNames");
 
-router.use(requireLogin);
+// router.use(requireLogin);
 
 
 // PROFILE PAGE
-router.get("/:username", (req, res) => {
+router.get("/:username", requireLogin, (req, res) => {
   res.render("profile", { user: req.session.currentUser });
 });
 
 // display all travels created by user:
-router.get("/:username/travels", async (req, res) => {
+router.get("/:username/travels", requireLogin, async (req, res) => {
 
   const allTravels = await Travel.find({owner: req.session.currentUser._id })
 
@@ -26,7 +26,7 @@ router.get("/:username/travels", async (req, res) => {
 });
 
 // create new travel if user adds country via world map
-router.post("/:username/travels", async (req, res) => {
+router.post("/:username/travels", requireLogin, async (req, res) => {
   const owner = await User.findOne({
     username: req.session.currentUser.username,
   });
@@ -49,7 +49,7 @@ router.post("/:username/travels", async (req, res) => {
 
 
 // delete travel entry
-router.post("/:username/travels/delete", async (req, res) => {
+router.post("/:username/travels/delete",requireLogin, async (req, res) => {
   const travelID = req.body.id;
   await Travel.findByIdAndDelete(travelID);
   await User.findOneAndUpdate({ username : req.session.currentUser.username }, { $pull : { travels: travelID } })
@@ -57,7 +57,7 @@ router.post("/:username/travels/delete", async (req, res) => {
 });
 
 // display individual travel entry (pre-filled if edited before)
-router.get("/:username/travels/:id", async(req, res) => {
+router.get("/:username/travels/:id", requireLogin, async(req, res) => {
   const travelFromDb = await Travel.findOne({ _id: req.params.id });
   // console.log( travelFromDb.dateStart instanceof Date ) // to check class instance
   const dateStart = travelFromDb.dateStart.toISOString().split("T")[0];
@@ -71,7 +71,7 @@ router.get("/:username/travels/:id", async(req, res) => {
 
 
 // save edited travel entry
-router.post("/:username/travels/:id", async (req, res, next) => {
+router.post("/:username/travels/:id", requireLogin, async (req, res, next) => {
   const { country, cities, dateStart, dateEnd } = req.body;
   const updatedTravel = {
     country: country,
@@ -85,7 +85,7 @@ router.post("/:username/travels/:id", async (req, res, next) => {
 });
 
 // LOGOUT
-router.post("/logout", (req, res) => {
+router.post("/logout", requireLogin, (req, res) => {
   req.session.destroy((err) => {
     if (err) return next(err);
 

@@ -25,10 +25,16 @@ module.exports = (app) => {
   app.use(
     session({
       secret: process.env.SESSION_SECRET,
-      store: MongoStore.create({ mongoUrl: MONGO_URI }
-      ),
+      // store: MongoStore.create({ mongoUrl: MONGO_URI }
+      // ),
       resave: false,
       saveUninitialized: false,
+      cookie: {
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: process.env.NODE_ENV === "production",
+        httpOnly: true,
+        maxAge: 2592000 // 60 * 1000 ms === 1 min
+      },
   }));
 
   // In development environment the app logs
