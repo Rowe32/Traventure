@@ -37,7 +37,7 @@ const countryList = [...allCountryElements].map((elem) =>
   elem.getAttribute("title")
 );
 
-// hover over world map - click adds country to list (depending on which mode is active)
+// hover over world map - a mouseclick adds country to list (depending on which mode is active)
 
 const addCountry = (countryName) => {
   const countryElement = document.querySelector(`[title="${countryName}"]`);
