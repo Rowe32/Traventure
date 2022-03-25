@@ -90,8 +90,11 @@ function setDisplayToNone() {
    elem.parentNode.parentNode.parentNode.style.display = "none";
   })
 
-  let flag = infobox.querySelectorAll('img')
-  if (flag) {
-    (flag)[0].className += " flag"
+  let images = infobox.querySelectorAll('img')
+  if (images) {
+    (images)[0].className += " flag";
+    for (let i = 1; i < images.length; i++) {
+      images[i].className += " smaller";
+    }
   }
 }
