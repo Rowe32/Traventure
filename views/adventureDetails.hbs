@@ -19,24 +19,7 @@
 
             <br><br>
 
-            <label for="cities">Cities:</label>
-            <br>
-            <input id="cities" type="text" name="cities" value="{{entry.cities}}">
-
-            <br><br>
-
-            <label for="dateStart">Start of adventure:</label>
-            <input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
-            <br>
-
-            <label for="dateEnd">End of adventure:</label>
-            <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
-
-            <br><br>
-
-            <div class="btn-container">
-                <button class="btn petrol" type="submit">Save adventure!</button>
-            </div>
+            {{> detailsForm advenTravel="adventure" colour="petrol"}}
 
         {{else}}
             <label for="country">Country:</label>
@@ -45,23 +28,8 @@
 
             <br><br>
 
-            <label for="cities">Cities:</label>
-            <br>
-            <input id="cities" type="text" name="cities" value="">
+            {{> detailsForm advenTravel="adventure" colour="petrol"}}
 
-            <br><br>
-
-            <label for="dateStart">Start of adventure:</label>
-            <input id="dateStart" type="date" name="dateStart" value="">
-            <br>
-
-            <label for="dateEnd">End of adventure:</label>
-            <input id="dateEnd" type="date" name="dateEnd" value="">
-
-            <br><br>
-            <div class="btn-container">
-                <button  class="btn petrol" type="submit">Save adventure!</button>
-            </div>
         {{/if }}
 
         </form>
