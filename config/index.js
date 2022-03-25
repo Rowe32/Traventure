@@ -29,12 +29,6 @@ module.exports = (app) => {
       ),
       resave: false,
       saveUninitialized: false,
-    // cookie: {
-    //   //sameSite: "none",
-    //   // secure: true,
-    //   // httpOnly: true,
-    //   maxAge: 600000, // 60 * 1000 ms * 10 === 10 min
-    // },
   }));
 
   // In development environment the app logs

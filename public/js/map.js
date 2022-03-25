@@ -2,6 +2,8 @@ const allCountryElements = document.querySelectorAll("path");
 const travelModeElem = document.querySelector(".selectTravel");
 const adventureModeElem = document.querySelector(".selectAdventure");
 
+// switch buttons on profile page:
+
 travelModeElem.addEventListener("click", () => {
   if (travelModeElem.classList.contains("passive")) {
     travelModeElem.className = "btn orange selectTravel active";
@@ -16,7 +18,6 @@ travelModeElem.addEventListener("click", () => {
     adventureModeElem.innerText = "adventure mode active!";
   }
 });
-
 
 adventureModeElem.addEventListener("click", () => {
   if (adventureModeElem.classList.contains("passive")) {
@@ -35,6 +36,8 @@ adventureModeElem.addEventListener("click", () => {
 const countryList = [...allCountryElements].map((elem) =>
   elem.getAttribute("title")
 );
+
+// hover over world map - click adds country to list (depending on which mode is active)
 
 const addCountry = (countryName) => {
   const countryElement = document.querySelector(`[title="${countryName}"]`);

@@ -2,12 +2,12 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const requireLogin = require("../middleware/routeGuard");
 const User = require("../models/User.model");
-// const Travel = require("../models/Travel.model");
 const Adventure = require("../models/Adventure.model");
 const countryNames = require("../db/countryNames");
 
 router.use(requireLogin);
 
+// display all adventures created by user:
 router.get("/:username/adventures", async (req, res) => {
   const allAdventures = await Adventure.find({owner: req.session.currentUser._id });
   res.render("adventureList", {
@@ -16,6 +16,8 @@ router.get("/:username/adventures", async (req, res) => {
   });
 });
 
+
+// create new adventure if user adds country via world map
 router.post("/:username/adventures", async (req, res) => {
   const owner = await User.findOne({
     username: req.session.currentUser.username,
@@ -36,6 +38,8 @@ router.post("/:username/adventures", async (req, res) => {
   res.send("Successful changes");
 });
 
+
+// delete adventure entry
 router.post("/:username/adventures/delete", async (req, res) => {
   const adventureID = req.body.id;
   await Adventure.findByIdAndDelete(adventureID);
@@ -44,6 +48,7 @@ router.post("/:username/adventures/delete", async (req, res) => {
 });
 
 
+// display individual adventure entry (pre-filled if edited before)
 router.get("/:username/adventures/:id", async(req, res) => {
   const adventureFromDb = await Adventure.findOne({ _id: req.params.id });
   const dateStart = adventureFromDb.dateStart.toISOString().split("T")[0];
@@ -55,6 +60,8 @@ router.get("/:username/adventures/:id", async(req, res) => {
   });
 });
 
+
+// save edited adventure entry
 router.post("/:username/adventures/:id", async (req, res, next) => {
   const { country, cities, dateStart, dateEnd } = req.body;
 
