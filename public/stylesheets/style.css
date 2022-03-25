@@ -491,6 +491,7 @@ ul {
   justify-content: flex-start;
   align-items: baseline;
   color: #ff8b42;
+  text-transform: uppercase;
   width: 50%;
   flex: 2;
   font-size: 2.5rem;
@@ -721,6 +722,7 @@ ul {
   font-size: 2.5rem;
   margin-left: 1vh;
   margin-top: 0.5vh;
+  text-transform: uppercase;
 }
 
 #year-in-travel-box-adventure {
