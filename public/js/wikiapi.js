@@ -54,7 +54,7 @@ function setDisplayToNone() {
       while(nextSibling) {
         nextSibling = nextSibling.nextElementSibling;
         if (nextSibling === null) break
-        if (elem.innerHTML.trim().toLowerCase() === "population") continue // + darauffolgendes tr
+        if (elem.innerHTML.trim().toLowerCase() === "population") continue
         nextSibling.style.display ="none"
       }
     }
