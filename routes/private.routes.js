@@ -8,16 +8,13 @@ const countryNames = require("../db/countryNames");
 
 router.use(requireLogin);
 
-router.get("/test", async (req, res) => {
-  const travel = await User.find().populate("travels");
-  // console.log("Heyy its me", travel);
-  res.send("Send nothing");
-});
+
+// PROFILE PAGE
 router.get("/:username", (req, res) => {
-  //req.params.username
   res.render("profile", { user: req.session.currentUser });
 });
 
+// display all travels created by user:
 router.get("/:username/travels", async (req, res) => {
 
   const allTravels = await Travel.find({owner: req.session.currentUser._id })
@@ -28,6 +25,7 @@ router.get("/:username/travels", async (req, res) => {
   });
 });
 
+// create new travel if user adds country via world map
 router.post("/:username/travels", async (req, res) => {
   const owner = await User.findOne({
     username: req.session.currentUser.username,
@@ -49,6 +47,8 @@ router.post("/:username/travels", async (req, res) => {
   res.send("Successful changes");
 });
 
+
+// delete travel entry
 router.post("/:username/travels/delete", async (req, res) => {
   const travelID = req.body.id;
   await Travel.findByIdAndDelete(travelID);
@@ -56,7 +56,7 @@ router.post("/:username/travels/delete", async (req, res) => {
   res.redirect(`/private/${ req.session.currentUser.username }/travels`);
 });
 
-
+// display individual travel entry (pre-filled if edited before)
 router.get("/:username/travels/:id", async(req, res) => {
   const travelFromDb = await Travel.findOne({ _id: req.params.id });
   // console.log( travelFromDb.dateStart instanceof Date ) // to check class instance
@@ -69,16 +69,11 @@ router.get("/:username/travels/:id", async(req, res) => {
   });
 });
 
+
+// save edited travel entry
 router.post("/:username/travels/:id", async (req, res, next) => {
   const { country, cities, dateStart, dateEnd } = req.body;
-  // console.log("this is 59", dateStart);
-  console.log("Line 60", req.body);
-  // console.log("Line 61", req.params.id);
-  
-  // console.log("hello from line 39", dateStart.slice(0, 4));
-  // const owner = await User.findOne({ username: req.params.username });
   const updatedTravel = {
-    // owner,
     country: country,
     cities: cities,
     dateStart: dateStart,
@@ -86,15 +81,10 @@ router.post("/:username/travels/:id", async (req, res, next) => {
     year: Number(dateStart.slice(0, 4)),
   };
   await Travel.findByIdAndUpdate({_id: req.params.id}, updatedTravel)
-  // await Travel.create(newTravel);
-  // const travelFromDb = await Travel.findOne({ country: country });
-  // await User.findOneAndUpdate(
-  //   { username: req.params.username },
-  //   { $push: { travels: travelFromDb._id } }
-  // );
   res.redirect(`/private/${req.params.username}/travels`);
 });
 
+// LOGOUT
 router.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) return next(err);

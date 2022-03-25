@@ -1,9 +1,8 @@
 const countryForInfobox = document.querySelector("#selectedCountry");
-
-//template literal for countes
 const endpoint = `https://en.wikipedia.org/w/api.php?action=parse&page=${countryForInfobox.value}&prop=text&formatversion=2&origin=*&format=json`;
-
 let infobox;
+
+//API Request from Wikipedia & targetting of infobox
 
 async function getDataFromWikipedia() {
   const response = await fetch(endpoint);
@@ -23,6 +22,7 @@ async function getDataFromWikipedia() {
 
 getDataFromWikipedia();
 
+// customized infobox:
 
 function setDisplayToNone() {
   // to target all a tag elements in info box:
@@ -54,7 +54,7 @@ function setDisplayToNone() {
       while(nextSibling) {
         nextSibling = nextSibling.nextElementSibling;
         if (nextSibling === null) break
-        if (elem.innerHTML.trim().toLowerCase() === "population") continue // + darauffolgendes tr
+        if (elem.innerHTML.trim().toLowerCase() === "population") continue
         nextSibling.style.display ="none"
       }
     }
@@ -62,7 +62,6 @@ function setDisplayToNone() {
   })
 
     // take out coordinates of capital
-
   let spanElems = infobox.querySelectorAll('span')
   Array.from(spanElems).forEach((elem) => { 
     if (elem.className === "plainlinks nourlexpansion") {
@@ -71,7 +70,6 @@ function setDisplayToNone() {
   })
 
   // take out anthem & motto
-
   let anthem = infobox.querySelectorAll('b')
   Array.from(anthem).forEach((elem) => { 
     if (elem.innerHTML.toLowerCase() === "anthem:") {
@@ -83,13 +81,13 @@ function setDisplayToNone() {
     }
   })
 
-  // take out audio
-
+  // take out audio of anthem
   let audio = infobox.querySelectorAll('audio')
   Array.from(audio).forEach((elem) => { 
    elem.parentNode.parentNode.parentNode.style.display = "none";
   })
 
+  //add classed to images to style them via CSS:
   let images = infobox.querySelectorAll('img')
   if (images) {
     (images)[0].className += " flag";

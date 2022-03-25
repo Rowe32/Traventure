@@ -3,7 +3,7 @@
 <div class="details-form" id="travel-form">
 
 <div class="header-div">
-    <h1 id="travel-header"> - your travel -</h1> 
+    <h1 id="travel-header"> - your travel - </h1> 
 </div>
 
 <form action="/private/{{user.username}}/travels/{{entry._id}}" method="POST">
@@ -20,24 +20,7 @@
 
     <br><br>
 
-    <label for="cities">Cities:</label>
-    <br>
-    <input id="cities" type="text" name="cities" value="{{entry.cities}}">
-
-    <br><br>
-
-    <label for="dateStart">Start of travel:</label>
-    <input id="dateStart" type="date" name="dateStart" value="{{entry.dateStart}}">
-    <br>
-
-    <label for="dateEnd">End of travel:</label>
-    <input id="dateEnd" type="date" name="dateEnd" value="{{entry.dateEnd}}">
-
-    <br><br>
-
-    <div class="btn-container">
-        <button class="btn orange" type="submit">Save travel!</button>
-    </div>
+    {{> detailsForm advenTravel="travel" colour="orange"}}
 
 {{else}}
     <label for="country">Country:</label>
@@ -46,23 +29,8 @@
 
     <br><br>
 
-    <label for="cities">Cities:</label>
-    <br>
-    <input id="cities" type="text" name="cities" value="">
+    {{> detailsForm advenTravel="travel" colour="orange"}}
 
-    <br><br>
-
-    <label for="dateStart">Start of travel:</label>
-    <input id="dateStart" type="date" name="dateStart" value="">
-    <br>
-
-    <label for="dateEnd">End of travel:</label>
-    <input id="dateEnd" type="date" name="dateEnd" value="">
-    
-    <br><br>
-    <div class="btn-container">
-        <button class="btn orange" type="submit">Save travel!</button>
-    </div>
 {{/if }}
 
 </form>

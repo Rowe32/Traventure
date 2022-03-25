@@ -614,6 +614,7 @@ ul {
 
 .details-form {
   width: 40vw;
+  overflow: hidden;
 }
 
 .header-div {
@@ -679,7 +680,8 @@ ul {
   margin-bottom: 5vh;
   width: 35vw;
   border: 0.8vw solid;
-  padding: 1vw;
+  padding: 2vw;
+  overflow: hidden;
 }
 
 #wiki-travel {

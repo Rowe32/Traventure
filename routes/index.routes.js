@@ -3,15 +3,18 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
 
 
-/* GET home page */
+// HOME PAGE
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+
+// SIGN UP PAGE
 router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
+// create user in db
 router.post("/signup", async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
@@ -34,10 +37,12 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
+// login page
 router.get("/login", (req, res, next) => {
   res.render("login");
 });
 
+// login check with db
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;

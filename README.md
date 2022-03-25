@@ -2,7 +2,7 @@
 
 ## Description
 
-Organize your travels and plan new adventures.
+Remember your past travels & plan new adventures.
  
 ## User Stories
 
@@ -12,7 +12,7 @@ Organize your travels and plan new adventures.
 - **logout** - As a user I want to be able to log out from the webpage
 - **profile page** - As a user I want to see a map of the world and be able to hover over all countries. By clicking, I can add each country to my travel list
 - **past travel list** - As a user I want to see a list of all my past travels and edit or delete each entry
-- **travel details** - As a user I want to see the details of each travel entry and be able to specify: cities visited (alphabetical order) and travel dates
+- **travel details** - As a user I want to see the details of each travel entry and be able to specify cities visited and travel dates
 - **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
 - **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 
@@ -65,28 +65,27 @@ Sign up
   - body:
     - email
     - password
-- POST /logout                             
-                                        //- später prüfen
-  - body: (empty)
-  - redirects to /
+- POST /logout                            
+  - redirects to /login
 
 - GET /private/:username
   - renders the users profile page
   - svg on click allows to add entry to travel list (creates id)
   - redirects to travel list if user clicks on LINK/BTN
-                                          //- POST /profile
-                                          //  - id
+                                          
 
 - GET /private/:username/travels
   - renders the past travels list
   - redirects to individual travel entries if user clicks on entry
 
+- POST /private/:username/travels
+  - 
+
 - GET /private/:username/travels/:id
-  - renders the travel detail form (if edited before then pre-filled form)
+  - renders the travel detail form (if edited before then pre-filled)
   - accesses API to gain information on country
 
 - POST /private/:username/travels/:id
-                          //   - if user clicks on save-btn redirects to travel detail page (w/o form)
   - if user clicks on save-btn redirects to /travels
   - body: 
     -cities
@@ -94,7 +93,25 @@ Sign up
     -experience
     -category
 
-                                    // list error paths
+- GET /private/:username/adventures
+  - renders the new adventure list
+  - redirects to individual adventure entries if user clicks on entry
+
+- POST /private/:username/adventures
+  - 
+
+- GET /private/:username/adventures/:id
+  - renders the adventure detail form (if edited before then pre-filled)
+  - accesses API to gain information on country
+
+- POST /private/:username/adventures/:id
+  - if user clicks on save-btn redirects to /adventures
+  - body: 
+    -cities
+    -travel dates
+    -experience
+    -category
+
 
 ## Models
 
@@ -105,38 +122,41 @@ username: String
 email: String
 password: String
 travels: [{Travel-Objects}]
+adventures: [{Adventure-Objects}]
 ```
 
 Travel model
 
 ```
-traveler: ObjectId<User>
+owner: ObjectId<User>
 country: String
 cities: [String]
-travelName: String
-dateFrom: Date
-dateTo: Date
-categories: [String]
-Experience: String
-Photo: String
+dateStart: Date
+dateEnd: Date
+``` 
+
+Adventure model
+
+```
+owner: ObjectId<User>
+country: String
+cities: [String]
+dateStart: Date
+dateEnd: Date
 ``` 
 
 ## Links
-
-### Trello
-
-[Link to your trello board](https://trello.com) or picture of your physical board
 
 ### Git
 
 The url to your repository and to your deployed project
 
-[Repository Link](http://github.com)
+[Repository Link](https://github.com/Rowe32/Traventure)
 
-[Deploy Link](http://heroku.com)
+[Deploy Link](https://iron-traventure.herokuapp.com/)
 
 ### Slides
 
 The url to your presentation slides
 
-[Slides Link](http://slides.com)
+[Slides Link](https://docs.google.com/presentation/d/1T9IYhwU33ETS8X4zt0RN7wKq8E6WmBiJw0pb-_CXfsw/edit#slide=id.g11a8856111b_0_102)
