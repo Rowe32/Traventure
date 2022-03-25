@@ -66,14 +66,7 @@ router.get("/:username/travels/:id", async(req, res) => {
 
 router.post("/:username/travels/:id", async (req, res, next) => {
   const { country, cities, dateStart, dateEnd } = req.body;
-  // console.log("this is 59", dateStart);
-  console.log("Line 60", req.body);
-  // console.log("Line 61", req.params.id);
-  
-  // console.log("hello from line 39", dateStart.slice(0, 4));
-  // const owner = await User.findOne({ username: req.params.username });
   const updatedTravel = {
-    // owner,
     country: country,
     cities: cities,
     dateStart: dateStart,
@@ -81,12 +74,6 @@ router.post("/:username/travels/:id", async (req, res, next) => {
     year: Number(dateStart.slice(0, 4)),
   };
   await Travel.findByIdAndUpdate({_id: req.params.id}, updatedTravel)
-  // await Travel.create(newTravel);
-  // const travelFromDb = await Travel.findOne({ country: country });
-  // await User.findOneAndUpdate(
-  //   { username: req.params.username },
-  //   { $push: { travels: travelFromDb._id } }
-  // );
   res.redirect(`/private/${req.params.username}/travels`);
 });
 

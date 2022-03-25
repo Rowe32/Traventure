@@ -74,7 +74,6 @@ const addCountry = (countryName) => {
 
   countryElement.addEventListener("mouseleave", () => {
     countryElement.style.fill = "black";
-    console.log(countryElement);
   });
 };
 

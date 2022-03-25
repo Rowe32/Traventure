@@ -83,7 +83,7 @@ function setDisplayToNone() {
     }
   })
 
-  // take out audio
+  // take out audio of anthem
 
   let audio = infobox.querySelectorAll('audio')
   Array.from(audio).forEach((elem) => { 
