@@ -62,6 +62,7 @@ body {
   font-family: "Gaegu", cursive;
   font-size: 1rem;
   border: black;
+  margin-left: 1.5vw;
 
 }
 
@@ -334,8 +335,8 @@ svg {
   /* overflow: auto; */
   position: absolute;
   top: 0;
-  left: 20vw;
-  height: 100%;
+  /* left: 20vw; */
+  height: 100% !important;
   width: 100%;
 }
 
@@ -418,21 +419,29 @@ svg {
 /* ------------------------------------ */
 /* Style for past travels page */
 
-.past-travels-div {
-  width: 100vw;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.semi-transparent-favicon {
+  opacity: 0.15;
+  width:70vh;
 }
 
-.past-travels-div > h1 {
+.past-travels-div {
+  width: 100vw;
+  height: 20vh;
   display: flex;
   justify-content: flex-start;
-  width: 30 vw;
-  padding: 0 3vw;
-  margin-left: 3vw;
-  background-color: #ff8b42;
-  color: black;
+  align-content: center;
+}
+
+.past-travels-div.travelList > h1 {
+  display: flex;
+    justify-content: flex-start;
+    width: 30 vw;
+    padding: 0 3vw;
+    margin-left: 3vw;
+    /* margin-top: 8vh; */
+    background-color: #ff8b42;
+    font-size: 2.5rem;
+    color: black;
 }
 
 .ul-travels-container {
@@ -441,7 +450,6 @@ svg {
   align-items: baseline;
   flex-direction: column;
   width: 100vw;
-  padding-left: 6vw;
   height: 80vh;
 }
 
@@ -460,13 +468,15 @@ ul {
 
 .black-travel-box {
   display: flex;
-    justify-content: center;
-    align-items: baseline;
-    position: relative;
-    background-color: black;
-    width: 50vw;
-    margin-bottom: 1vw;
-    flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  position: relative;
+  background-color: black;
+  width: 70vw;
+  /* height: 25vh; */
+  margin-bottom: 1vw;
+  flex-wrap: wrap;
+  margin-left: 3vw;
 }
 
 .country-and-year-div {
@@ -478,14 +488,15 @@ ul {
 
 #country-in-travel-box {
   display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    color: #ff8b42;
-    width: 50%;
-    flex: 2;
-    font-size: 1.7rem;
-    margin-left: 1vh;
-    margin-top: 0.5vh;
+  justify-content: flex-start;
+  align-items: baseline;
+  color: #ff8b42;
+  text-transform: uppercase;
+  width: 50%;
+  flex: 2;
+  font-size: 2.5rem;
+  margin-left: 1vh;
+  margin-top: 0.5vh;
 }
 
 #year-in-travel-box {
@@ -493,11 +504,15 @@ ul {
   justify-content: space-between;
   align-items: baseline;
   color: #ff8b42;
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   margin-right: 1vh;
   margin-top: 0.5vh;
 }
 
+#year-in-travel-box i {
+  margin-right: 2vh;
+  font-size: 2rem;
+}
 
 .btn-travel-box {
   display: flex;
@@ -517,39 +532,66 @@ ul {
 
 .cities-travel-list {
   display: flex;
-  color: #ff8b42;
-  width: 60%;
-  padding-left: 1vh;
+    color: #ff8b42;
+    width: 60%;
+    padding-left: 3vh;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+}
+
+.cities-travel-list i {
+  margin-right: 3vh;
+  font-size: 1.5rem;
 }
 
 .edit-btn-travel-list {
   display: flex;
-    color: #ff8b42;
-    width: 20%;
-    text-decoration: none;
-    background: black;
-    border: 1vh #ff8b42;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+  color: black; 
+  text-decoration: none;
+  background: #ff8b42;
+  border: 1vh black;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding-top: 2.5vh;
+  padding-bottom: 1vh;
+  padding-left: 2vw;
+  padding-right: 1vw;
+}
+
+.edit-btn-travel-list-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
 }
 
 .delete-btn-travel-list {
   display: flex;
   color: black;
-  /* width: 20%; */
+  width: 80%;
   text-decoration: none;
   background: #ff8b42;
   border: 1vh #ff8b42;
   flex-wrap: wrap;
+  font-size: 1.5rem;
+  padding: 2vh 1vh 2vh 2vh;
+  font-family: "Gaegu", cursive;
+  align-content: center;
+  justify-content: center;
+}
+
+.delete-btn-travel-list i {
+  margin-left: 2vh;
 }
 
 
 .btn-travel-box a {
   text-decoration: none;
-  color: #ff8b42;
+  color: black;
   font-family: "Gaegu", cursive;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 
@@ -639,4 +681,96 @@ ul {
 .flag {
   width: 90%;
   height: auto;
+}
+
+/* ------------------------------------ */
+/* Style for adventure list page */
+
+.semi-transparent-favicon {
+  opacity: 0.15;
+  width:70vh;
+}
+
+.past-travels-div {
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.past-travels-div.adventureList > h1 {
+  display: flex;
+    justify-content: flex-start;
+    width: 30 vw;
+    padding: 0 3vw;
+    margin-left: 3vw;
+    /* margin-top: 8vh; */
+    background-color: #0098A3;
+    font-size: 2.5rem;
+    color: black;
+
+}
+
+#country-in-travel-box-adventure {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  color: #0098A3;
+  width: 50%;
+  flex: 2;
+  font-size: 2.5rem;
+  margin-left: 1vh;
+  margin-top: 0.5vh;
+  text-transform: uppercase;
+}
+
+#year-in-travel-box-adventure {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #0098A3;
+  font-size: 2.5rem;
+  margin-right: 1vh;
+  margin-top: 0.5vh;
+}
+
+.cities-travel-list-adventure {
+  display: flex;
+    color: #0098A3;
+    width: 60%;
+    padding-left: 3vh;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+}
+
+.edit-btn-travel-list-adventure {
+  display: flex;
+  color: black; 
+  text-decoration: none;
+  background: #0098A3;
+  border: 1vh black;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding-top: 2.5vh;
+  padding-bottom: 1vh;
+  padding-left: 2vw;
+  padding-right: 1vw;
+}
+
+.delete-btn-travel-list-adventure {
+  display: flex;
+  color: black;
+  width: 80%;
+  text-decoration: none;
+  background: #0098A3;
+  border: 1vh #0098A3;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  padding: 2vh 1vh 2vh 2vh;
+  font-family: "Gaegu", cursive;
+  align-content: center;
+  justify-content: center;
 }
